@@ -1,0 +1,30 @@
+OSX = 0
+
+if ARGUMENTS.get('debug', 0):
+    env = Environment(CCFLAGS = '-g')
+    print "Debug Build"
+else:
+    env = Environment()
+
+cppdefines = []
+for key, value in ARGLIST:
+   if key == 'define':
+       cppdefines.append(value)
+env = Environment(CPPDEFINES = cppdefines)
+
+env.Library('life','liblife.c');
+env.Library('matrix','matrix.c');
+env.Library('vector','vector.c');
+#env.Library('camera','camera.c');
+env.Library('engine',['engine.c','camera.c','input/input.c','input/glut.c']);
+
+env['LIBS'] = ['matrix','vector','m'];
+
+if OSX:
+	env['FRAMEWORKS'] = ['Carbon', 'OpenGL', 'GLUT']
+	env.Program('3dlife','Block.cpp', LIBS=['life','camera','matrix','vector','m'],LIBPATH='.')
+else:
+	env.Program('3dlife','Block.cpp', LIBS=['GL','GLU','glut','life','engine','matrix','vector','m'],LIBPATH='.')
+
+env.Program('matrix_test','matrix_test.c', LIBS=['engine','vector','matrix','m'], LIBPATH='.')
+#env.Program('lifecli','lifecli.c', LIBS=['life'],LIBPATH='.')
