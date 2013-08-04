@@ -1,0 +1,68 @@
+# KallistiOS ##version##
+# 
+#   
+
+TARGET = futz.elf
+HOURCES = Test.cpp \
+          math/Matrix4.cpp math/Vector3.cpp math/Quaternion.cpp 
+SOURCES = Futz.cpp \
+      GameBase.cpp \
+      math/Matrix4.cpp math/Vector3.cpp math/Quaternion.cpp \
+      TimeKeeper.cpp \
+      scenegraph/SceneGraph.cpp \
+      platforms/SystemLayerBase.cpp \
+      platforms/FutzLayer.cpp \
+      platforms/FutzDreamcast.cpp \
+      renderers/dummy/DummyRenderer.cpp \
+      renderers/dreamcast/DreamcastRenderer.cpp \
+      camera/Camera.cpp \
+      input/InputEventQueue.cpp \
+      core/Node.cpp \
+      core/Transform.cpp \
+      core/Profiler.cpp \
+      models/Model.cpp \
+      models/Material.cpp \
+      models/Triangle.cpp \
+      models/wavefront/WavefrontModel.cpp \
+      ../demo/Demo.cpp \
+      ../demo/Asteroids.cpp \
+      ../demo/Ships.cpp \
+      ../demo/main.cpp
+
+#      ../test/TestGame.cpp \
+#      ../test/main.cpp
+
+CFLAGS = -D DREAMCAST
+
+OBJS=$(SOURCES:.cpp=.o)
+
+
+all: rm-elf $(TARGET)
+
+include $(KOS_BASE)/Makefile.rules
+
+clean:
+	-rm -f $(TARGET) $(BIN) $(OBJS) romdisk.*
+
+rm-elf:
+	-rm -f $(TARGET) $(BIN) romdisk.*
+
+$(TARGET): $(OBJS) romdisk.o
+	$(KOS_CC) $(KOS_CFLAGS) $(KOS_LDFLAGS) -o $(TARGET) $(KOS_START) \
+	$(OBJS) romdisk.o $(OBJEXTRA) -L$(KOS_BASE)/lib -ldcplib -lk++ -lgl -lpng -ljpeg -lz -lkosutils -lm -lstdc++ $(KOS_LIBS)
+
+
+romdisk.img:
+	$(KOS_GENROMFS) -f romdisk.img -d romdisk -v
+
+romdisk.o: romdisk.img
+	$(KOS_BASE)/utils/bin2o/bin2o romdisk.img romdisk romdisk.o
+
+run: $(TARGET)
+	$(KOS_LOADER) $(TARGET)
+
+dist: 
+	rm -f $(OBJS) romdisk.*
+	$(KOS_STRIP) $(TARGET)
+
+

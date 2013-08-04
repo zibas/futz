@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{748941b5-8e23-4e92-b5a3-7916ac1c3a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scenegraph">
+      <UniqueIdentifier>{cec3347b-829d-41ee-9172-d9c201314d3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\abstractions">
+      <UniqueIdentifier>{ea108380-3a1e-4e5d-841a-f24ba9e817ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\camera">
+      <UniqueIdentifier>{d8588ea0-bfb2-4e77-b6c9-e834d8c4ab29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{d80734cf-2332-4c18-bc28-7f4f3631db89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{075737a9-765f-4a74-b775-7dc3c86b54fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models">
+      <UniqueIdentifier>{5dd9d033-782d-4004-bd49-5c4ab23706a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models\dummy">
+      <UniqueIdentifier>{e786fbf8-3989-412f-8660-fb61f9470511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models\wavefront">
+      <UniqueIdentifier>{f2b3c316-9df4-4416-8c2e-67746d05d10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3rdParty">
+      <UniqueIdentifier>{6ee8f6a8-989e-4f54-aa1d-a5a8c0f4261f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\futz\Futz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\GameBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\TimeKeeper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\scenegraph\SceneGraph.cpp">
+      <Filter>Source Files\scenegraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\input\InputEventQueue.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\abstractions\SystemLayerBase.cpp">
+      <Filter>Source Files\abstractions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\camera\Camera.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\core\Node.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\core\Transform.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\math\Matrix4.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\math\Quaternion.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\math\Vector3.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\models\Model.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\models\Triangle.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\models\dummy\DummyModel.cpp">
+      <Filter>Source Files\models\dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\models\wavefront\WavefrontModel.cpp">
+      <Filter>Source Files\models\wavefront</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\abstractions\FutzGlut.cpp">
+      <Filter>Source Files\abstractions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\3rdParty\stb_image.cpp">
+      <Filter>Source Files\3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\models\Material.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\futz\Futz.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\GameBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\TimeKeeper.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\scenegraph\SceneGraph.h">
+      <Filter>Source Files\scenegraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\input\InputEventQueue.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\abstractions\SystemLayerBase.h">
+      <Filter>Source Files\abstractions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\camera\Camera.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\Node.h">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\Transform.h">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\math\Matrix4.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\math\Quaternion.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\math\Vector3.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\models\Material.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\models\Model.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\models\Triangle.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\models\dummy\DummyModel.h">
+      <Filter>Source Files\models\dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\models\wavefront\WavefrontModel.h">
+      <Filter>Source Files\models\wavefront</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\abstractions\FutzGlut.h">
+      <Filter>Source Files\abstractions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\3rdParty\stb_image.h">
+      <Filter>Source Files\3rdParty</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
