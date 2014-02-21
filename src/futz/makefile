@@ -5,6 +5,7 @@ SOURCES_SHARED = Futz.cpp \
       platforms/SystemLayerBase.cpp \
       renderers/dummy/DummyRenderer.cpp \
       renderers/gl1/GL1Renderer.cpp \
+      renderers/gl3/GL3Renderer.cpp \
       camera/Camera.cpp \
       input/Input.cpp \
       input/InputEventQueue.cpp \

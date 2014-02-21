@@ -14,12 +14,14 @@
 #include "models/Model.h"
 #include "models/wavefront/WavefrontModel.h"
 
+#define GL1 false
+#define GL3 true
+
+
 #if GLUT
 #include "platforms/FutzGlut.h"
-#include "renderers/gl1/GL1Renderer.h"
 #elif SDL
 #include "platforms/FutzSDL.h"
-#include "renderers/gl1/GL1Renderer.h"
 #elif ANDROID
 #include "platforms/FutzAndroid.h"
 #elif IOS
@@ -31,10 +33,16 @@
 #include "platforms/FutzLayer.h"
 #endif
 
+#if GL1
+#include "renderers/gl1/GL1Renderer.h"
+#elif GL3
+#include "renderers/gl3/GL3Renderer.h"
+#elif GLES1
+#include "renderers/gles1/GLES1Renderer.h"
+#endif
+
 #include "renderers/RendererBase.h"
 #include "renderers/dummy/DummyRenderer.h"
-//#include "renderers/gles1/GLES1Renderer.h"
-//#include "renderers/gl1/GL1Renderer.h"
 
 /*
  Futz constructor
@@ -48,16 +56,12 @@ Futz::Futz() {
 	Futz::Log("Setting platform");
 	#if GLUT
 	this->platform = (SystemLayerBase*)new FutzGlut();
-	this->renderer = (RendererBase*)new GL1Renderer();
 	#elif SDL
 	this->platform = (SystemLayerBase*)new FutzSDL();
-	this->renderer = (RendererBase*)new GL1Renderer();
 	#elif ANDROID
 	this->platform = (SystemLayerBase*)new FutzAndroid();
-	this->renderer = (RendererBase*)new GLES1Renderer();
 	#elif IOS
 	this->platform = (SystemLayerBase*)new FutzIOS();
-	this->renderer = (RendererBase*)new GLES1Renderer();
 	#elif DREAMCAST
 	this->platform = (SystemLayerBase*)new FutzDreamcast();
 	this->renderer = (RendererBase*)new DreamcastRenderer();
@@ -65,6 +69,14 @@ Futz::Futz() {
 	this->platform = (SystemLayerBase*)new FutzLayer();
 	this->renderer = (RendererBase*)new DummyRenderer();
 	#endif
+
+#if GL1
+	this->renderer = (RendererBase*)new GL1Renderer();
+#elif GL3
+	this->renderer = (RendererBase*)new GL3Renderer();
+#elif GLES1
+	this->renderer = (RendererBase*)new GLES1Renderer();
+#endif
 
 }
 
