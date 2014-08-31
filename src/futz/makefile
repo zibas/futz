@@ -25,12 +25,15 @@ SOURCES_SHARED = Futz.cpp \
       math/Matrix4.cpp math/Vector3.cpp math/Quaternion.cpp \
 
 SOURCES_SDL =  $(SOURCES_SHARED) platforms/FutzSDL.cpp
+SOURCES_SDL2 =  $(SOURCES_SHARED) platforms/FutzSDL2.cpp
 SOURCES_GLUT =  $(SOURCES_SHARED) platforms/FutzGlut.cpp
 
 OBJECTS_SDL=$(SOURCES_SDL:.cpp=.o)
+OBJECTS_SDL2=$(SOURCES_SDL2:.cpp=.o)
 OBJECTS_GLUT=$(SOURCES_GLUT:.cpp=.o)
 
 OUT_SDL = bin/libfutz_sdl.a
+OUT_SDL2 = bin/libfutz_sdl2.a
 OUT_GLUT = bin/libfutz_glut.a
 
 
@@ -42,17 +45,22 @@ ifeq ($(UNAME),Darwin)
 endif
 
 all:
-	$(MAKE) sdl DEFINES="" 
-	$(MAKE) glut DEFINES="-D GLUT"  
+	$(MAKE) sdl
+	$(MAKE) sdl2
+	$(MAKE) glut
 
 sdl:
 	rm -f Futz.o
 	$(MAKE) sdlR DEFINES="-D FUTZ_PLATFORM_SDL -D FUTZ_RENDERER_GL1 -D $(OS)" 
+sdl2:
+	rm -f Futz.o
+	$(MAKE) sdl2R DEFINES="-D FUTZ_PLATFORM_SDL2 -D FUTZ_RENDERER_GL1 -D $(OS)" 
 glut:
 	rm -f Futz.o
 	$(MAKE) glutR DEFINES="-D FUTZ_PLATFORM_GLUT -D FUTZ_RENDERER_GL1 -D $(OS)" 
 
 sdlR: $(OUT_SDL)
+sdl2R: $(OUT_SDL2)
 glutR: $(OUT_GLUT)
 
 
@@ -71,8 +79,11 @@ CC = g++
 $(OUT_SDL): $(OBJECTS_SDL)
 	ar rcs $(OUT_SDL) $(OBJECTS_SDL)
 
+$(OUT_SDL2): $(OBJECTS_SDL2)
+	ar rcs $(OUT_SDL2) $(OBJECTS_SDL2)
+
 $(OUT_GLUT): $(OBJECTS_GLUT)
 	ar rcs $(OUT_GLUT) $(OBJECTS_GLUT)
 
 clean:
-	rm -f $(OBJECTS_GLUT) $(OBJECTS_SDL) $(OUT_SDL) $(OUT_GLUT)
+	rm -f $(OBJECTS_GLUT) $(OBJECTS_SDL) $(OUT_SDL) $(OUT_SDL2) $(OUT_GLUT)

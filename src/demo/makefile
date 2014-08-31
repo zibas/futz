@@ -2,6 +2,7 @@
 # make LAYER=SDL
 EXECUTABLE_GLUT=demo_glut
 EXECUTABLE_SDL=demo_sdl
+EXECUTABLE_SDL2=demo_sdl2
 
 UNAME := $(shell uname)
 
@@ -17,16 +18,9 @@ INCLUDES = -I. -I../include/ -I../futz/
 ifeq ($(LAYER),SDL)
 	LIBS = -L../ -L/usr/local/lib -lm  -L../futz/bin/ -lfutz_sdl -lGL -lGLU -lSDL
 	EXECUTABLE=$(EXECUTABLE_SDL)
-	 #SDL 1.2 is kind of insane on OSX: http://www.digitalmars.com/d/archives/digitalmars/D/12078.html
-	ifeq ($(UNAME),Darwin)
-	  DEFINES=-D OSX
-	  LIBS = -L../ -L/usr/local/lib -lm  -L../futz/bin/ -lfutz_sdl -lGL -lGLU
-	  LIBS += -L"/System/Library/Frameworks/OpenGL.framework/Libraries"
-	  LIBS += `sdl-config --libs`
-	  INCLUDES += `sdl-config --cflags`
-	  FRAMEWORK = -framework SDL
-	  FRAMEWORK += -framework OpenGL 
-	endif
+else ifeq ($(LAYER),SDL2)
+	LIBS = -L../ -L/usr/local/lib -lm  -L../futz/bin/ -lfutz_sdl2 -lGL -lGLU -lSDL2
+	EXECUTABLE=$(EXECUTABLE_SDL2)
 else
 	LIBS = -L../ -L/usr/local/lib -lm  -L../futz/bin/ -lfutz_glut -lGL -lGLU -lglut
 	EXECUTABLE=$(EXECUTABLE_GLUT)
@@ -45,4 +39,4 @@ all:
 	$(CC) $(DEFINES) $(SOURCES) $(INCLUDES) $(LIBS) $(FRAMEWORK) -o $(EXECUTABLE)
 
 clean:
-	rm -rf *o $(EXECUTABLE_GLUT) $(EXECUTABLE_SDL)
+	rm -rf *o $(EXECUTABLE_GLUT) $(EXECUTABLE_SDL) $(EXECUTABLE_SDL2)
