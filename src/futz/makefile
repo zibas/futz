@@ -42,15 +42,15 @@ ifeq ($(UNAME),Darwin)
 endif
 
 all:
-	$(MAKE) sdl DEFINES="-D SDL" 
+	$(MAKE) sdl DEFINES="" 
 	$(MAKE) glut DEFINES="-D GLUT"  
 
 sdl:
 	rm -f Futz.o
-	$(MAKE) sdlR DEFINES="-D SDL -D $(OS)" 
+	$(MAKE) sdlR DEFINES="-D FUTZ_PLATFORM_SDL -D FUTZ_RENDERER_GL1 -D $(OS)" 
 glut:
 	rm -f Futz.o
-	$(MAKE) glutR DEFINES="-D GLUT -D $(OS)" 
+	$(MAKE) glutR DEFINES="-D FUTZ_PLATFORM_GLUT -D FUTZ_RENDERER_GL1 -D $(OS)" 
 
 sdlR: $(OUT_SDL)
 glutR: $(OUT_GLUT)
