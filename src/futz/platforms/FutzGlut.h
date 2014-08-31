@@ -4,6 +4,7 @@
  *  Created on: Nov 3, 2010
  *      Author: ziba
  */
+#if FUTZ_PLATFORM_GLUT
 
 #ifndef FUTZGLUT_H_
 #define FUTZGLUT_H_
@@ -26,3 +27,4 @@ public:
 };
 
 #endif /* FUTZGLUT_H_ */
+#endif

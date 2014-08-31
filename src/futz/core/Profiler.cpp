@@ -15,18 +15,21 @@ void Profiler::Start(string label){
 }
 
 void Profiler::End(){
-    if(enabled){
-        Futz* futz = Futz::Instance();
-        string label = labels.top();
+	if (enabled){
+		Futz* futz = Futz::Instance();
+		if (!labels.empty()){
+			string label = labels.top();
 
-        if(durations.find(label) == durations.end()){
-            durations[label] = futz->time.InstantTotalElapsedSeconds() - starts[label]; 
-            finishedLabels.push(label);
-        } else {
-            durations[label] += futz->time.InstantTotalElapsedSeconds() - starts[label]; 
-        }
+			if (durations.find(label) == durations.end()){
+				durations[label] = futz->time.InstantTotalElapsedSeconds() - starts[label];
+				finishedLabels.push(label);
+			}
+			else {
+				durations[label] += futz->time.InstantTotalElapsedSeconds() - starts[label];
+			}
 
-        labels.pop();
+			labels.pop();
+		}
     }
 }
 

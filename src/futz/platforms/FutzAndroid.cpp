@@ -1,3 +1,4 @@
+#if FUTZ_PLATFORM_ANDROID
 #include <GLES/gl.h>
 #include <GLES/glext.h>
 #include <jni.h>
@@ -151,3 +152,4 @@ JNIEXPORT void JNICALL Java_com_popcannibal_futz_Futz_SetAssetManager(JNIEnv * e
 	}
 };
 */
+#endif

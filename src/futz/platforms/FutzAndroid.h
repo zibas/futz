@@ -1,3 +1,5 @@
+#if FUTZ_PLATFORM_ANDROID
+
 /*
  * FutzAndroid.h
  *
@@ -31,3 +33,4 @@ public:
 };
 
 #endif /* FUTZANDROID_H_ */
+#endif

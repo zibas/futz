@@ -1,3 +1,5 @@
+#if FUTZ_PLATFORM_DREAMCAST
+
 #include "../Futz.h"
 #include "FutzDreamcast.h"
 /* You can safely remove this line if you don't use a ROMDISK */
@@ -139,3 +141,5 @@ unsigned char* FutzDreamcast::LoadImage(string filename, int *x, int *y){
 
     return data;
 }
+
+#endif

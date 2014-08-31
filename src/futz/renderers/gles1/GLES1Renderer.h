@@ -1,3 +1,4 @@
+#if FUTZ_RENDERER_GLES1
 #ifndef GLES1RENDERER_H_
 #define GLES1RENDERER_H_
 
@@ -36,4 +37,5 @@ private:
 	void DrawWithArrays(Model);
 };
 
+#endif
 #endif

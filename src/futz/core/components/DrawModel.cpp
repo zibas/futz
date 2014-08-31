@@ -27,5 +27,5 @@ void DrawModel::Start(){
 
 
 void DrawModel::DrawLocal(){
-	Futz::Instance()->renderer->DrawModel(*model);
+	Futz::Instance()->renderer->DrawModel(model);
 }

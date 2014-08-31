@@ -1,3 +1,4 @@
+#if FUTZ_PLATFORM_DREAMCAST
 #ifndef DREAMCASTRENDERER_H_
 #define DREAMCASTRENDERER_H_
 
@@ -35,4 +36,5 @@ private:
 
 };
 
+#endif
 #endif

@@ -3,7 +3,7 @@
 
 BoundingBox::BoundingBox(){
     name = "BoundingBox";
-    draw = false;
+    draw = true;
 }
 
 void BoundingBox::Start(){
@@ -126,7 +126,8 @@ void BoundingBox::ReadModel(Model* m){
 void BoundingBox::Update(){
 //    SetLocalVerticesFromExtremes();
 //    ReadModel(model);
-//
+
+	
     v1 = lv1.Transform(((Node*)node)->transform.matrix);
     v2 = lv2.Transform(((Node*)node)->transform.matrix);
     v3 = lv3.Transform(((Node*)node)->transform.matrix);
@@ -135,7 +136,7 @@ void BoundingBox::Update(){
     v6 = lv6.Transform(((Node*)node)->transform.matrix);
     v7 = lv7.Transform(((Node*)node)->transform.matrix);
     v8 = lv8.Transform(((Node*)node)->transform.matrix);
-
+	
 
 }
 
