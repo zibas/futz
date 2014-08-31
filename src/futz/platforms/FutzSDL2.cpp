@@ -12,8 +12,6 @@
 //#include "SDL/SDL.h"
 
 
-
-
 void checkSDLError(int line = -1)
 {
 	const char *error = SDL_GetError();
@@ -35,13 +33,13 @@ void FutzSDL2::Initialize(int argc, char** argv){
 	}
 
 
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 1);
+	//SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 1);
 	//SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
 
 	/* Turn on double buffering with a 24bit Z buffer.
 	* You may need to change this to 16 or 32 for your system */
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 32);
+	//SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	//SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 32);
 
 	displayWindow = SDL_CreateWindow("Futz - SDL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, futz->platform->width, futz->platform->height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 	
