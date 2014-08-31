@@ -73,6 +73,26 @@ void FutzSDL2::Resize(int width, int height){
 
 }
 
+char FutzSDL2::EventToChar(SDL_Event event){
+	char key = '\0';
+	if (event.key.keysym.sym == SDLK_a){ key = 'a'; }
+	else if (event.key.keysym.sym == SDLK_b){ key = 'b'; }
+	else if (event.key.keysym.sym == SDLK_c){ key = 'c'; }
+	else if (event.key.keysym.sym == SDLK_d){ key = 'd'; }
+	else if (event.key.keysym.sym == SDLK_e){ key = 'e'; }
+	else if (event.key.keysym.sym == SDLK_f){ key = 'f'; }
+	else if (event.key.keysym.sym == SDLK_g){ key = 'g'; }
+	else if (event.key.keysym.sym == SDLK_h){ key = 'h'; }
+	else if (event.key.keysym.sym == SDLK_i){ key = 'i'; }
+	else if (event.key.keysym.sym == SDLK_n){ key = 'n'; }
+	else if (event.key.keysym.sym == SDLK_r){ key = 'r'; }
+	else if (event.key.keysym.sym == SDLK_s){ key = 's'; }
+	else if (event.key.keysym.sym == SDLK_w){ key = 'w'; }
+	else if (event.key.keysym.sym == SDLK_ESCAPE){ key = 27; }
+
+	return key;
+}
+
 void FutzSDL2::MainLoop(){
 	Futz* futz = Futz::Instance();
 	
@@ -92,13 +112,14 @@ void FutzSDL2::MainLoop(){
 				break;
 			case SDL_TEXTINPUT:
 				ch = *event.text.text;
-				futz->input.SetDown(ch);
-				futz->input.SetUp(ch);
-				Futz::Log("key down");
+				//futz->input.SetDown(ch);
+				//futz->input.SetUp(ch);
+				//Futz::Log("key down");
 
 				break;
 			case SDL_KEYDOWN:
 				Futz::Log("key press");
+				futz->input.SetDown(this->EventToChar(event));
 				
 				//if ((event.key.keysym.unicode & 0xFF80) == 0) {
 					//ch = event.key.keysym.sym .unicode & 0x7F;
@@ -107,35 +128,7 @@ void FutzSDL2::MainLoop(){
 				
 				break;
 			case SDL_KEYUP:
-				char key = '\0';
-				if (event.key.keysym.sym == SDLK_a){ key = 'a'; }
-				else if (event.key.keysym.sym == SDLK_b){ key = 'b'; }
-				else if (event.key.keysym.sym == SDLK_c){ key = 'c'; }
-				else if (event.key.keysym.sym == SDLK_d){ key = 'd'; }
-				else if (event.key.keysym.sym == SDLK_e){ key = 'e'; }
-				else if (event.key.keysym.sym == SDLK_f){ key = 'f'; }
-				else if (event.key.keysym.sym == SDLK_g){ key = 'g'; }
-				else if (event.key.keysym.sym == SDLK_h){ key = 'h'; }
-				else if (event.key.keysym.sym == SDLK_i){ key = 'i'; }
-				else if (event.key.keysym.sym == SDLK_n){ key = 'n'; }
-				else if (event.key.keysym.sym == SDLK_r){ key = 'r'; }
-				else if (event.key.keysym.sym == SDLK_s){ key = 's'; }
-				else if (event.key.keysym.sym == SDLK_w){ key = 'w'; }
-
-				if (key != '\0'){
-					futz->input.SetUp(key);
-				}
-				else {
-					// what the hell sdl? they decided to not give unicode on keyup
-					// this may work on some platforms
-					/*
-					if ((event.key.keysym.unicode & 0xFF80) == 0) {
-						ch = event.key.keysym.unicode & 0x7F;
-						futz->input.SetUp(ch);
-					}
-					*/
-				}
-				//futz->input.SetUp(event.key.keysym.unicode);
+				futz->input.SetUp(this->EventToChar(event));
 				break;
 			}
 

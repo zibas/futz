@@ -30,6 +30,8 @@ public:
 	void MainLoop();
 	void ToggleFullscreen();
 	virtual ~FutzSDL2();
+private:
+	char EventToChar(SDL_Event event);
 };
 
 #endif /* FUTZSDL_H_ */
