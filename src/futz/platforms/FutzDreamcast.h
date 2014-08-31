@@ -1,3 +1,6 @@
+#if FUTZ_PLATFORM_DREAMCAST
+
+
 #ifndef FUTZDREAMCAST_H_
 #define FUTZDREAMCAST_H_
 #include <kos.h>
@@ -13,4 +16,5 @@ class FutzDreamcast: public SystemLayerBase {
  float min[2];
  float center[2];
 };
+#endif
 #endif

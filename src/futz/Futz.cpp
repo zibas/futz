@@ -5,6 +5,23 @@
  *      Author: ziba
  */
 
+
+/*
+
+Define the appropriate variables in your compile phase
+
+FUTZ_RENDERER_GL1
+FUTZ_RENDERER_GLES1
+FUTZ_RENDERER_GL3
+
+FUTZ_PLATFORM_SDL
+FUTZ_PLATFORM_SDL2
+FUTZ_PLATFORM_GLUT
+FUTZ_PLATFORM_IOS
+FUTZ_PLATFORM_DREAMCAST
+FUTZ_PLATFORM_ANDROID
+*/
+
 #ifdef _WIN32
 #include <Windows.h>
 #endif
@@ -14,30 +31,28 @@
 #include "models/Model.h"
 #include "models/wavefront/WavefrontModel.h"
 
-#define GL1 false
-#define GL3 true
-
-
-#if GLUT
+#if FUTZ_PLATFORM_GLUT
 #include "platforms/FutzGlut.h"
-#elif SDL
+#elif FUTZ_PLATFORM_SDL
 #include "platforms/FutzSDL.h"
-#elif ANDROID
+#elif FUTZ_PLATFORM_SDL2
+#include "platforms/FutzSDL2.h"
+#elif FUTZ_PLATFORM_ANDROID
 #include "platforms/FutzAndroid.h"
 #elif IOS
 #include "platforms/IOS/FutzIOS.h"
-#elif DREAMCAST
+#elif FUTZ_PLATFORM_DREAMCAST
 #include "platforms/FutzDreamcast.h"
 #include "renderers/dreamcast/DreamcastRenderer.h"
 #else
 #include "platforms/FutzLayer.h"
 #endif
 
-#if GL1
+#if FUTZ_RENDERER_GL1
 #include "renderers/gl1/GL1Renderer.h"
-#elif GL3
+#elif FUTZ_RENDERER_GL3
 #include "renderers/gl3/GL3Renderer.h"
-#elif GLES1
+#elif FUTZ_RENDERER_GLES1
 #include "renderers/gles1/GLES1Renderer.h"
 #endif
 
@@ -54,15 +69,17 @@
 
 Futz::Futz() {
 	Futz::Log("Setting platform");
-	#if GLUT
+	#if FUTZ_PLATFORM_GLUT
 	this->platform = (SystemLayerBase*)new FutzGlut();
-	#elif SDL
-	this->platform = (SystemLayerBase*)new FutzSDL();
-	#elif ANDROID
+	#elif FUTZ_PLATFORM_SDL
+	this->platform = (SystemLayerBase*)new FutzSDL();	
+	#elif FUTZ_PLATFORM_SDL2
+		this->platform = (SystemLayerBase*)new FutzSDL2();
+	#elif FUTZ_PLATFORM_ANDROID
 	this->platform = (SystemLayerBase*)new FutzAndroid();
-	#elif IOS
+	#elif FUTZ_PLATFORM_IOS
 	this->platform = (SystemLayerBase*)new FutzIOS();
-	#elif DREAMCAST
+	#elif FUTZ_PLATFORM_DREAMCAST
 	this->platform = (SystemLayerBase*)new FutzDreamcast();
 	this->renderer = (RendererBase*)new DreamcastRenderer();
 	#else
@@ -70,11 +87,11 @@ Futz::Futz() {
 	this->renderer = (RendererBase*)new DummyRenderer();
 	#endif
 
-#if GL1
+#if FUTZ_RENDERER_GL1
 	this->renderer = (RendererBase*)new GL1Renderer();
-#elif GL3
+#elif FUTZ_RENDERER_GL3
 	this->renderer = (RendererBase*)new GL3Renderer();
-#elif GLES1
+#elif FUTZ_RENDERER_GLES1
 	this->renderer = (RendererBase*)new GLES1Renderer();
 #endif
 
@@ -109,10 +126,15 @@ void Futz::Update(){
 
 void Futz::Render(){
     profiler.Start("Render");
+
 	this->renderer->StartFrame();
+
 	camera.ComputeTransform();
+
 	this->renderer->ApplyCamera(camera);
+
 	scene.Render();
+
 	time.RenderLoop();
 	this->renderer->FinishFrame();
     profiler.End();

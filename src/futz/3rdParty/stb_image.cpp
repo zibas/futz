@@ -422,7 +422,7 @@ extern int      stbi_gif_info_from_file   (FILE *f,                  int *x, int
 #include <stdio.h>
 #endif
 #include <stdlib.h>
-#ifdef DREAMCAST
+#ifdef FUTZ_PLATFORM_DREAMCAST
 #include <string.h>
 #else
 #include <memory.h>
@@ -443,7 +443,7 @@ extern int      stbi_gif_info_from_file   (FILE *f,                  int *x, int
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef   signed short  int16;
-#ifndef DREAMCAST
+#ifndef FUTZ_PLATFORM_DREAMCAST
 typedef unsigned int   uint32;
 typedef   signed int    int32;
 #endif

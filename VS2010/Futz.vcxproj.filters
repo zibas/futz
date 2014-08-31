@@ -19,9 +19,6 @@
     <Filter Include="Source Files\scenegraph">
       <UniqueIdentifier>{cec3347b-829d-41ee-9172-d9c201314d3c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\abstractions">
-      <UniqueIdentifier>{ea108380-3a1e-4e5d-841a-f24ba9e817ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\camera">
       <UniqueIdentifier>{d8588ea0-bfb2-4e77-b6c9-e834d8c4ab29}</UniqueIdentifier>
     </Filter>
@@ -43,6 +40,33 @@
     <Filter Include="Source Files\3rdParty">
       <UniqueIdentifier>{6ee8f6a8-989e-4f54-aa1d-a5a8c0f4261f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\core\components">
+      <UniqueIdentifier>{bb37770c-3d5a-44c6-a974-dd61ee798798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\primatives">
+      <UniqueIdentifier>{0509171c-3f55-47c4-a4b3-e931b67c65bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\platforms">
+      <UniqueIdentifier>{3887109e-2b5b-43d7-b483-21898ed83e5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\renderers">
+      <UniqueIdentifier>{e4cdd081-5871-4800-9280-45254f9261f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\renderers\gl1">
+      <UniqueIdentifier>{c49f19da-cd0a-47ab-b4d0-2edc3feea564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\renderers\dreamcast">
+      <UniqueIdentifier>{509bc90d-b166-48f4-aa0e-80bac2f8ef2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\renderers\dummy">
+      <UniqueIdentifier>{67b01329-06b0-489e-97be-f9b3615e8e1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\renderers\gl3">
+      <UniqueIdentifier>{b0c1231a-b623-4f45-98fe-df036ffbfd2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\renderers\gles1">
+      <UniqueIdentifier>{13a2747d-9fbe-4d74-84fb-d4af9762420b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\futz\Futz.cpp">
@@ -59,9 +83,6 @@
     </ClCompile>
     <ClCompile Include="..\src\futz\input\InputEventQueue.cpp">
       <Filter>Source Files\input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\futz\abstractions\SystemLayerBase.cpp">
-      <Filter>Source Files\abstractions</Filter>
     </ClCompile>
     <ClCompile Include="..\src\futz\camera\Camera.cpp">
       <Filter>Source Files\camera</Filter>
@@ -93,14 +114,65 @@
     <ClCompile Include="..\src\futz\models\wavefront\WavefrontModel.cpp">
       <Filter>Source Files\models\wavefront</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\futz\abstractions\FutzGlut.cpp">
-      <Filter>Source Files\abstractions</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\futz\3rdParty\stb_image.cpp">
       <Filter>Source Files\3rdParty</Filter>
     </ClCompile>
     <ClCompile Include="..\src\futz\models\Material.cpp">
       <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\core\components\AxisAlignedBoundingBox.cpp">
+      <Filter>Source Files\core\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\core\components\BoundingBox.cpp">
+      <Filter>Source Files\core\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\core\components\BoxCollider.cpp">
+      <Filter>Source Files\core\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\core\components\DrawModel.cpp">
+      <Filter>Source Files\core\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\core\Profiler.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\input\Input.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\platforms\FutzAndroid.cpp">
+      <Filter>Source Files\platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\platforms\FutzDreamcast.cpp">
+      <Filter>Source Files\platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\platforms\FutzGlut.cpp">
+      <Filter>Source Files\platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\platforms\FutzLayer.cpp">
+      <Filter>Source Files\platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\platforms\FutzSDL.cpp">
+      <Filter>Source Files\platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\platforms\SystemLayerBase.cpp">
+      <Filter>Source Files\platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\renderers\gl1\GL1Renderer.cpp">
+      <Filter>Source Files\renderers\gl1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\renderers\dreamcast\DreamcastRenderer.cpp">
+      <Filter>Source Files\renderers\dreamcast</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\renderers\dummy\DummyRenderer.cpp">
+      <Filter>Source Files\renderers\dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\renderers\gles1\GLES1Renderer.cpp">
+      <Filter>Source Files\renderers\gles1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\renderers\gl3\GL3Renderer.cpp">
+      <Filter>Source Files\renderers\gl3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\platforms\FutzSDL2.cpp">
+      <Filter>Source Files\platforms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,9 +190,6 @@
     </ClInclude>
     <ClInclude Include="..\src\futz\input\InputEventQueue.h">
       <Filter>Source Files\input</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\futz\abstractions\SystemLayerBase.h">
-      <Filter>Source Files\abstractions</Filter>
     </ClInclude>
     <ClInclude Include="..\src\futz\camera\Camera.h">
       <Filter>Source Files\camera</Filter>
@@ -155,11 +224,71 @@
     <ClInclude Include="..\src\futz\models\wavefront\WavefrontModel.h">
       <Filter>Source Files\models\wavefront</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\futz\abstractions\FutzGlut.h">
-      <Filter>Source Files\abstractions</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\futz\3rdParty\stb_image.h">
       <Filter>Source Files\3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\components\AxisAlignedBoundingBox.h">
+      <Filter>Source Files\core\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\components\BoundingBox.h">
+      <Filter>Source Files\core\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\components\BoxCollider.h">
+      <Filter>Source Files\core\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\components\DrawModel.h">
+      <Filter>Source Files\core\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\primatives\Box.h">
+      <Filter>Source Files\core\primatives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\Component.h">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\core\Profiler.h">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\input\Input.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\platforms\FutzAndroid.h">
+      <Filter>Source Files\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\platforms\FutzDreamcast.h">
+      <Filter>Source Files\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\platforms\FutzGlut.h">
+      <Filter>Source Files\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\platforms\FutzLayer.h">
+      <Filter>Source Files\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\platforms\SystemLayerBase.h">
+      <Filter>Source Files\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\renderers\gl1\GL1Renderer.h">
+      <Filter>Source Files\renderers\gl1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\renderers\RendererBase.h">
+      <Filter>Source Files\renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\renderers\dreamcast\DreamcastRenderer.h">
+      <Filter>Source Files\renderers\dreamcast</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\renderers\dummy\DummyRenderer.h">
+      <Filter>Source Files\renderers\dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\renderers\gles1\GLES1Renderer.h">
+      <Filter>Source Files\renderers\gles1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\renderers\gl3\GL3Renderer.h">
+      <Filter>Source Files\renderers\gl3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\platforms\FutzSDL2.h">
+      <Filter>Source Files\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\futz\platforms\FutzSDL.h">
+      <Filter>Source Files\platforms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

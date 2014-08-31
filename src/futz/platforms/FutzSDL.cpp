@@ -5,6 +5,8 @@
  *      Author: ziba
  */
 
+#if FUTZ_PLATFORM_SDL
+
 #include "../Futz.h"
 #include "FutzSDL.h"
 //#include "SDL/SDL.h"
@@ -123,3 +125,4 @@ void FutzSDL::ToggleFullscreen(){
 FutzSDL::~FutzSDL() {
 	// TODO Auto-generated destructor stub
 }
+#endif

@@ -1,3 +1,4 @@
+#if FUTZ_RENDERER_GL3
 #ifndef GL3RENDERER_H_
 #define GL3RENDERER_H_
 
@@ -19,4 +20,5 @@ public:
 	void LoadImage(Model* model, string filename, int textureIndex);
 };
 
+#endif
 #endif

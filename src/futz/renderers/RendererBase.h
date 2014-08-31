@@ -51,7 +51,9 @@ public:
 	virtual void StartTransform(float* transformValues){};
 	virtual void EndTransform(){};
 	virtual void DrawModel(Model model){};
+	virtual void DrawModel(Model* model){};
 	virtual void LoadImage(Model* model, string filename, int textureIndex){};
+	virtual void Resize(int width, int height){};
 };
 
 #endif

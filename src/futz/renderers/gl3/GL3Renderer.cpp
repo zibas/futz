@@ -1,3 +1,5 @@
+#if FUTZ_RENDERER_GL3
+
 #include "GL3Renderer.h"
 #include <stdio.h>
 
@@ -12,4 +14,5 @@ void GL3Renderer::DrawModel(Model model, float* transformValues){
 void GL3Renderer::LoadImage(Model* model, string filename, int textureIndex){
 	printf("GL3 renderer: Load Image\n");
 }
+#endif
 

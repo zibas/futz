@@ -4,6 +4,8 @@
  *  Created on: Nov 3, 2010
  *      Author: ziba
  */
+#if FUTZ_PLATFORM_GLUT
+
 #ifdef _WIN32
 #include <Windows.h>
 #endif
@@ -20,6 +22,7 @@
 #include <GL/glut.h>
 #endif
 #endif
+
 #include "../Futz.h"
 
 #include <stdio.h>
@@ -116,3 +119,4 @@ void FutzGlut::ToggleFullscreen(){
 FutzGlut::~FutzGlut() {
 	// TODO Auto-generated destructor stub
 }
+#endif

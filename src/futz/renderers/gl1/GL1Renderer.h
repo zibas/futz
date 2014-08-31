@@ -16,6 +16,7 @@ public:
 	void StartFrame();
 	void ApplyCamera(Camera);
 	void DrawModel(Model);
+	void DrawModel(Model*);
 	void LoadImage(Model* model, string filename, int textureIndex);
 	void DefaultLighting();
 	void DisableLighting();
@@ -24,8 +25,9 @@ public:
 	void EndTransform();
     void DrawLine(Vector3 a, Vector3 b, Vector3 c);
     void DrawLine(Vector3 a, Vector3 b);
+	void Resize(int width, int height);
 private:
-	void DrawWithArrays(Model);
+	void DrawWithArrays(Model*);
 	void DrawImmediate(Model);
 };
 

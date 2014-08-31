@@ -1,3 +1,4 @@
+#if FUTZ_RENDERER_GLES1
 #include "GLES1Renderer.h"
 #include <stdio.h>
 #include <vector>
@@ -124,3 +125,4 @@ void GLES1Renderer::DrawLine(Vector3 a, Vector3 b, Vector3 color){
     glEnd( );
      */
 }
+#endif

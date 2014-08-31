@@ -1,3 +1,4 @@
+#if FUTZ_PLATFORM_DREAMCAST
 #include "DreamcastRenderer.h"
 
 
@@ -194,4 +195,4 @@ void DreamcastRenderer::DisableLighting(){
 
 void DreamcastRenderer::EnableLighting(){
 }
-
+#endif

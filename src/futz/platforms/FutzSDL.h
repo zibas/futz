@@ -4,7 +4,7 @@
  *  Created on: Nov 3, 2010
  *      Author: ziba
  */
-
+#if FUTZ_PLATFORM_SDL
 #ifndef FUTZSDL_H_
 #define FUTZSDL_H_
 
@@ -30,3 +30,4 @@ public:
 };
 
 #endif /* FUTZSDL_H_ */
+#endif

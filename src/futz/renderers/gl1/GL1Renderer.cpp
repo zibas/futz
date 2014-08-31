@@ -1,5 +1,8 @@
 #include "GL1Renderer.h"
 
+#pragma comment(lib, "opengl32.lib")
+#pragma comment(lib, "glu32.lib")
+
 #ifdef OSX
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
@@ -52,32 +55,38 @@ void GL1Renderer::EndTransform(){
 }
 
 void GL1Renderer::DrawModel(Model model){
-	glFrontFace(GL_CCW);
-	DrawWithArrays(model);
+	//glFrontFace(GL_CCW);
+	//DrawWithArrays(model);
 	//DrawImmediate(model);
 }
 
-void GL1Renderer::DrawWithArrays(Model model){
+void GL1Renderer::DrawModel(Model* model){
+	glFrontFace(GL_CCW);
+	DrawWithArrays(model);
+	//DrawImmediate(*model);
+}
+
+void GL1Renderer::DrawWithArrays(Model* model){
 	int i;
 
-	glTexCoordPointer(2, GL_FLOAT, 0, model.textureCoordsArray);
-	glVertexPointer(3, GL_FLOAT, 0, model.vertexArray);
-	glColorPointer(4, GL_FLOAT, 0, model.colorArray);
-	glNormalPointer(GL_FLOAT, 0, model.normalArray);
+	glTexCoordPointer(2, GL_FLOAT, 0, model->textureCoordsArray);
+	glVertexPointer(3, GL_FLOAT, 0, model->vertexArray);
+	glColorPointer(4, GL_FLOAT, 0, model->colorArray);
+	glNormalPointer(GL_FLOAT, 0, model->normalArray);
 
 	int pos = 0;
-	for(std::vector< std::pair<Material*, int> >::iterator it = model.vertexGroups.begin(); it != model.vertexGroups.end(); ++it) {
+	for(std::vector< std::pair<Material*, int> >::iterator it = model->vertexGroups.begin(); it != model->vertexGroups.end(); ++it) {
 		if(((*it).first)->hasTexture){
 			glEnable ( GL_TEXTURE_2D );
 			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-			glBindTexture(GL_TEXTURE_2D, model.textureIDs[((*it).first)->textureIndex]);
+			glBindTexture(GL_TEXTURE_2D, model->textureIDs[((*it).first)->textureIndex]);
 			//printf("length, index, pos: %d, %d, %d\n",(*it).second,((*it).first)->textureIndex,pos);
 		} else {
 			//printf("length, index, pos: %d, NONE, %d\n",(*it).second,pos);
 			glDisable ( GL_TEXTURE_2D );
 			glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		}
-		glDrawElements(GL_TRIANGLES, (*it).second, GL_UNSIGNED_SHORT, &model.indexArray[pos]);
+		glDrawElements(GL_TRIANGLES, (*it).second, GL_UNSIGNED_SHORT, &model->indexArray[pos]);
 		pos += (*it).second;
 	}
 }
@@ -166,4 +175,15 @@ void GL1Renderer::DrawLine(Vector3 a, Vector3 b, Vector3 color){
     glVertex3f(a.x, a.y, a.z);
     glVertex3f(b.x, b.y, b.z);
     glEnd( );
+}
+
+void GL1Renderer::Resize(int width, int height){
+	Futz::Log("Resizing open gl window");
+	glViewport(0, 0, width, height);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	gluPerspective(60.0f, (GLfloat)width / (GLfloat)height, 0.1f, 500.0f);
+	glMatrixMode(GL_MODELVIEW);
 }
