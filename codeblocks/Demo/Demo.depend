@@ -1,0 +1,143 @@
+# depslib dependency file v1.0
+1387858123 source:/home/ziba/Documents/svn/futz/src/demo/Asteroids.cpp
+	"Futz.h"
+	"Asteroids.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/Futz.h
+	<string.h>
+	"input/Input.h"
+	"input/InputEventQueue.h"
+	"GameBase.h"
+	"TimeKeeper.h"
+	"camera/Camera.h"
+	"models/Model.h"
+	"core/Node.h"
+	"core/Profiler.h"
+	"scenegraph/SceneGraph.h"
+	"platforms/SystemLayerBase.h"
+	"renderers/RendererBase.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/input/Input.h
+	"InputEventQueue.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/input/InputEventQueue.h
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/GameBase.h
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/TimeKeeper.h
+	<time.h>
+	<sys/time.h>
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/camera/Camera.h
+	"../math/Matrix4.h"
+	"../math/Vector3.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/math/Matrix4.h
+	"Quaternion.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/math/Quaternion.h
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/math/Vector3.h
+	"Matrix4.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/models/Model.h
+	<stdio.h>
+	<vector>
+	<map>
+	<Windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GLUT/glut.h>
+	<OpenGLES/ES1/gl.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	"Triangle.h"
+	"Material.h"
+	"../math/Matrix4.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/models/Triangle.h
+	<string>
+	"../math/Vector3.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/models/Material.h
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Node.h
+	<map>
+	<vector>
+	"../models/Model.h"
+	"Component.h"
+	"Transform.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Component.h
+	"Node.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Transform.h
+	"../math/Vector3.h"
+	"../math/Matrix4.h"
+	"../math/Quaternion.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Profiler.h
+	<string>
+	<stack>
+	<map>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/scenegraph/SceneGraph.h
+	"../core/Node.h"
+	<map>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/platforms/SystemLayerBase.h
+	<string>
+	<sys/types.h>
+	<android/asset_manager.h>
+	<android/asset_manager_jni.h>
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/RendererBase.h
+	<vector>
+	"../camera/Camera.h"
+	"../models/Model.h"
+	"../math/Vector3.h"
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/demo/Asteroids.h
+	<stdlib.h>
+	<time.h>
+	"core/Node.h"
+	"models/Model.h"
+	"math/Matrix4.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/demo/Demo.cpp
+	"Demo.h"
+	<stdio.h>
+	<stdlib.h>
+	"Futz.h"
+	"input/InputEventQueue.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/demo/Demo.h
+	"GameBase.h"
+	"Asteroids.h"
+	"Ships.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/demo/Ships.h
+	<stdlib.h>
+	<time.h>
+	"core/Node.h"
+	"models/Model.h"
+	"math/Matrix4.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/demo/main.cpp
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	"Futz.h"
+	"Demo.h"
+	"GameBase.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/demo/Ships.cpp
+	"Futz.h"
+	"Ships.h"
+
