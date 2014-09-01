@@ -7,10 +7,10 @@ void Asteroids::Start(){
 	//char* file = (char*)"assets/taxi_model.obj";
 	//char* file = (char*)"assets/cell.obj";
 	char* file = (char*)"assets/asteroid.obj";
-	
+
 	model = futz->LoadModel(file);
 	model->Load();
-	
+
 	count = 0;
 
 	srand (time(NULL));
@@ -51,8 +51,8 @@ Asteroids::~Asteroids(){
 void Asteroids::Update(){
 	Futz* futz = Futz::Instance();
 	for(int i = 0; i < count; i++){
-		asteroids[i]->transform.SetRotation(rotations[i]->x * futz->time.totalElapsedSeconds, 
-				rotations[i]->y * futz->time.totalElapsedSeconds, 
-				rotations[i]->z * futz->time.totalElapsedSeconds); 
+		asteroids[i]->transform.SetRotation(rotations[i]->x * futz->time.totalElapsedSeconds,
+				rotations[i]->y * futz->time.totalElapsedSeconds,
+				rotations[i]->z * futz->time.totalElapsedSeconds);
 	}
 }

@@ -1,7 +1,9 @@
 #include "../Futz.h"
+#include "components/AxisAlignedBoundingBox.h"
 #include "components/BoxCollider.h"
 #include "components/BoundingBox.h"
 #include "components/DrawModel.h"
+#include "components/BoundingSphere.h"
 #include "Node.h"
 #include <stdio.h>
 
@@ -14,8 +16,14 @@ Node::Node(){
    // BoxCollider* boxCollider = new BoxCollider();
     //AddComponent((Component*) boxCollider);
 
+    //AxisAlignedBoundingBox* axisBox = new AxisAlignedBoundingBox();
+    //AddComponent((Component*) axisBox);
+
     BoundingBox* boundingBox = new BoundingBox();
     AddComponent((Component*) boundingBox);
+
+    BoundingSphere* boundingSphere = new BoundingSphere();
+    AddComponent((Component*) boundingSphere);
 }
 
 void Node::AddComponent(Component * component){
@@ -45,7 +53,9 @@ void Node::AddModel(Model* m){
     drawModel->model = m;
     AddComponent((Component*) drawModel);
 
+   // ((AxisAlignedBoundingBox*)GetComponent("AxisAlignedBoundingBox"))->SetModel(m);
     ((BoundingBox*)GetComponent("BoundingBox"))->ReadModel(m);
+    ((BoundingSphere*)GetComponent("BoundingSphere"))->ReadModel(m);
 }
 
 void Node::Update(){

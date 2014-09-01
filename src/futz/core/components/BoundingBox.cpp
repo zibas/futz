@@ -38,25 +38,13 @@ void BoundingBox::ReadModel(Model* m){
     float maxZ = NULL;
     float minZ = NULL;
 
-    Matrix4 mat = Matrix4();
     Vector3 tv;
 	for (int i = 0; i < m->triangles.size()*9; i+=3) {
-
-
-        mat.SetIdentity();
-        mat.SetTranslation(m->vertexArray[i], m->vertexArray[i+1], m->vertexArray[i+2]);
-        mat = mat * ((Node*)node)->transform.matrix;
-
-
-        tv.x = mat.values[12];
-        tv.y = mat.values[13];
-        tv.z = mat.values[14];
 
         tv.x = m->vertexArray[i];
         tv.y = m->vertexArray[i+1];
         tv.z = m->vertexArray[i+2];
 
-        //printf("%d tv.y %f\n",i, tv.y);
         if(maxX == NULL || maxX < tv.x){
             maxX = tv.x;
             extremeIndices[0] = i;
@@ -120,14 +108,10 @@ void BoundingBox::ReadModel(Model* m){
     lv8.x = minX;
     lv8.y = minY;
     lv8.z = minZ;
-    
+
 }
 
 void BoundingBox::Update(){
-//    SetLocalVerticesFromExtremes();
-//    ReadModel(model);
-
-	
     v1 = lv1.Transform(((Node*)node)->transform.matrix);
     v2 = lv2.Transform(((Node*)node)->transform.matrix);
     v3 = lv3.Transform(((Node*)node)->transform.matrix);
@@ -136,8 +120,6 @@ void BoundingBox::Update(){
     v6 = lv6.Transform(((Node*)node)->transform.matrix);
     v7 = lv7.Transform(((Node*)node)->transform.matrix);
     v8 = lv8.Transform(((Node*)node)->transform.matrix);
-	
-
 }
 
 void BoundingBox::Draw(){

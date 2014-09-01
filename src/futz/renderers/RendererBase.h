@@ -32,6 +32,7 @@ public:
 	virtual void ApplyCamera(Camera camera){
 		//printf("Renderer Unimplemented: ApplyCamera\n");
 	};
+	virtual void DrawSphere(Vector3 center, float radius){};
 	virtual void DrawLine(Vector3, Vector3){};
 	virtual void DrawLine(Vector3, Vector3, Vector3){};
     void DrawLine(float x, float y, float z, float x2, float y2, float z2){

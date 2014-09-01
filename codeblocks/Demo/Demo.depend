@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1387858123 source:/home/ziba/Documents/svn/futz/src/demo/Asteroids.cpp
+1409607757 source:/home/ziba/Documents/svn/futz/src/demo/Asteroids.cpp
 	"Futz.h"
 	"Asteroids.h"
 
@@ -96,7 +96,7 @@
 	<android/asset_manager.h>
 	<android/asset_manager_jni.h>
 
-1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/RendererBase.h
+1409552519 /home/ziba/Documents/svn/futz/src/futz/renderers/RendererBase.h
 	<vector>
 	"../camera/Camera.h"
 	"../models/Model.h"
@@ -110,7 +110,7 @@
 	"models/Model.h"
 	"math/Matrix4.h"
 
-1387858123 source:/home/ziba/Documents/svn/futz/src/demo/Demo.cpp
+1409558899 source:/home/ziba/Documents/svn/futz/src/demo/Demo.cpp
 	"Demo.h"
 	<stdio.h>
 	<stdlib.h>
@@ -137,7 +137,7 @@
 	"Demo.h"
 	"GameBase.h"
 
-1387858123 source:/home/ziba/Documents/svn/futz/src/demo/Ships.cpp
+1409607751 source:/home/ziba/Documents/svn/futz/src/demo/Ships.cpp
 	"Futz.h"
 	"Ships.h"
 
