@@ -7,7 +7,7 @@
 
 Demo::Demo() {
 	speed = 0.5;
-	turnSpeed = 20;
+	turnSpeed = 200;
 	idleDelay = 5.0;
 	idleClock = 0;
 }
@@ -17,6 +17,7 @@ void Demo::Start(){
 	asteroids.Start();
 	ships.Start();
 
+
 	Node* space = new Node();
 	Model* spaceModel = Futz::Instance()->LoadModel((char*)"assets/space_sphere.obj");
 	spaceModel->Load();
@@ -24,6 +25,8 @@ void Demo::Start(){
 	space->transform.SetScale(300);
 	space->useLighting = false;
 	Futz::Instance()->scene.AddNode(space);
+
+
 }
 
 void Demo::UpdateLoop(){
@@ -35,7 +38,7 @@ void Demo::UpdateLoop(){
 	if(idleClock >= idleDelay){
 		futz->camera.RotY(futz->time.delta * 10);
 	}
-	idleClock += futz->time.delta; 
+	idleClock += futz->time.delta;
 }
 
 void Demo::RenderLoop()

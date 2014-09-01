@@ -28,6 +28,11 @@ void AxisAlignedBoundingBox::Start(){
     lv8.x = lv8.y = -width; lv8.z = width;
 }
 
+void AxisAlignedBoundingBox::SetModel(Model* newModel){
+    model = newModel;
+    hasModel = true;
+}
+
 void AxisAlignedBoundingBox::ReadModel(Model* m){
     model = m;
     float maxX = NULL;
@@ -82,7 +87,7 @@ void AxisAlignedBoundingBox::ReadModel(Model* m){
 
     }
 
-    
+
     SetLocalVerticesFromExtremes();
 //    printf("Max: %f,%f\tMin: %f,%f\n",maxX, maxY, minX, minY);
 }
@@ -97,14 +102,14 @@ void AxisAlignedBoundingBox::SetLocalVerticesFromExtremes(){
     float minZ = NULL;
 
     Matrix4 m = Matrix4();
-    
+
 
     for(int i = 0; i < 6; i++){
         // Transformed vector
         Vector3 tv;
-        tv.x = model->vertexArray[extremeIndices[i]];  
-        tv.y = model->vertexArray[extremeIndices[i]+1];  
-        tv.z = model->vertexArray[extremeIndices[i]+2];  
+        tv.x = model->vertexArray[extremeIndices[i]];
+        tv.y = model->vertexArray[extremeIndices[i]+1];
+        tv.z = model->vertexArray[extremeIndices[i]+2];
 
         m.SetIdentity();
         m.SetTranslation(tv.x, tv.y, tv.z);
@@ -176,7 +181,9 @@ void AxisAlignedBoundingBox::SetLocalVerticesFromExtremes(){
 
 void AxisAlignedBoundingBox::Update(){
 //    SetLocalVerticesFromExtremes();
-    ReadModel(model);
+    if(hasModel){
+        ReadModel(model);
+    }
 
 }
 

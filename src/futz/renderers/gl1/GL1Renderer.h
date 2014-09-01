@@ -8,7 +8,7 @@
 using namespace std;
 
 class GL1Renderer: public RendererBase {
-	
+
 public:
 	//DummyRenderer();
 	//virtual ~DummyRenderer();
@@ -23,6 +23,7 @@ public:
 	void EnableLighting();
 	void StartTransform(float* transformValues);
 	void EndTransform();
+	void DrawSphere(Vector3 center, float radius);
     void DrawLine(Vector3 a, Vector3 b, Vector3 c);
     void DrawLine(Vector3 a, Vector3 b);
 	void Resize(int width, int height);

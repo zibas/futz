@@ -12,6 +12,8 @@
 #endif
 
 #include <stdio.h>
+#include <math.h>
+
 #include <vector>
 #include "../../models/Model.h"
 #include "../../models/Triangle.h"
@@ -98,7 +100,7 @@ void GL1Renderer::DrawImmediate(Model model){
 	glBegin(GL_TRIANGLES);
 	for (int i = 0; i < model.triangles.size(); i++) {
 		Triangle t = model.triangles[i];
-	
+
 		if(model.materials[t.materialName].hasTexture &&  model.materials[t.materialName].textureIndex != currentTextureIndex){
 			currentTextureIndex = model.materials[t.materialName].textureIndex;
 			glEnd();
@@ -138,13 +140,13 @@ void GL1Renderer::LoadImage(Model* model, string filename, int textureIndex){
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); 
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, x, y, 0, GL_RGBA, GL_UNSIGNED_BYTE, model->imageData);
 }
 
 void GL1Renderer::DefaultLighting(){
-	GLfloat light_ambient[] = {0.0, 0.0, 0.0, 1.0}; 
-	GLfloat light_diffuse[] = {1.0, 1.0, 1.0, 1.0}; 
+	GLfloat light_ambient[] = {0.0, 0.0, 0.0, 1.0};
+	GLfloat light_diffuse[] = {1.0, 1.0, 1.0, 1.0};
 	GLfloat light_position[] = {0.0, 0.0, 2.0, 1.0};  /* Infinite light location. */
 	glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
@@ -163,6 +165,105 @@ void GL1Renderer::EnableLighting(){
 	glEnable(GL_LIGHT1);
 	glEnable(GL_LIGHTING);
 }
+
+//http://www.cburch.com/cs/490/sched/feb8/
+void GL1Renderer::DrawSphere(Vector3 center, float radius){
+    /*
+ 	glFrontFace(GL_CCW);
+
+     int i, j;
+     int lats = 10;
+     int longs = 10;
+     float resolution = 1;
+
+       for(i = 0; i <= lats; i++) {
+            double lat0 = M_PI * (-resolution/2 + (double) (i - 1) / lats);
+           double z0  = sin(lat0);
+           double zr0 =  cos(lat0);
+
+           double lat1 = M_PI * (-resolution/2 + (double) i / lats);
+           double z1 = sin(lat1);
+           double zr1 = cos(lat1);
+
+           glBegin(GL_QUAD_STRIP);
+           for(j = 0; j <= longs; j++) {
+               double lng = 2 * M_PI * (double) (j - 1) / longs;
+               double x = cos(lng);
+               double y = sin(lng);
+
+               glNormal3f(center.x + (x * zr0), center.y + (y * zr0), center.z + z0);
+               glVertex3f(center.x + (x * zr0), center.y + (y * zr0), center.z + z0);
+               glNormal3f(center.x + (x * zr1), center.y + (y * zr1), center.z + z1);
+               glVertex3f(center.x + (x * zr1), center.y + (y * zr1), center.z + z1);
+           }
+           glEnd();
+       }
+       */
+       //https://sites.google.com/site/drunkdevsltd/tutorials/draw-a-sphere-using-opengl-3-3
+        float X1,Y1,X2,Y2,Z1,Z2;
+        float inc1,inc2,inc3,inc4,inc5,Radius1,Radius2;
+        int Resolution = 10;
+
+        for(int w = 0; w < Resolution; w++) {
+                for(int h = (-Resolution/2); h < (Resolution/2); h++){
+
+
+                inc1 = (w/(float)Resolution)*2*M_PI;
+                inc2 = ((w+1)/(float)Resolution)*2*M_PI;
+                inc3 = (h/(float)Resolution)*M_PI;
+                inc4 = ((h+1)/(float)Resolution)*M_PI;
+
+                X1 = sin(inc1);
+                Y1 = cos(inc1);
+                X2 = sin(inc2);
+                Y2 = cos(inc2);
+
+                // store the upper and lower radius, remember everything is going to be drawn as triangles
+                Radius1 = radius*cos(inc3);
+                Radius2 = radius*cos(inc4);
+
+
+
+
+                Z1 = radius*sin(inc3);
+                Z2 = radius*sin(inc4);
+
+                           glBegin(GL_TRIANGLES);
+
+                glColor4f(1,1,1,0.2);
+                // insert the triangle coordinates
+
+               glVertex3f(center.x + Radius1*X1, center.y + Radius1*Y1, center.z + Z1);
+               glVertex3f(center.x + Radius1*X2, center.y + Radius1*Y2, center.z + Z1);
+               glVertex3f(center.x + Radius2*X2, center.y + Radius2*Y2, center.z + Z2);
+
+               glVertex3f(center.x + Radius1*X1, center.y + Radius1*Y1, center.z + Z1);
+               glVertex3f(center.x + Radius2*X2, center.y + Radius1*Y2,  center.z + Z2);
+               glVertex3f(center.x + Radius2*X1, center.y + Radius2*Y1, center.z + Z2 );
+/*
+               glVertex3f(center.x + Radius1*X1, center.y + Z1, center.z + Radius1*Y1);
+               glVertex3f(center.x + Radius1*X2, center.y + Z1, center.z + Radius1*Y2);
+               glVertex3f(center.x + Radius2*X2, center.y + Z2, center.z + Radius2*Y2);
+
+               glVertex3f(center.x + Radius1*X1, center.y + Z1, center.z + Radius1*Y1);
+               glVertex3f(center.x + Radius2*X2, center.y + Z2, center.z + Radius1*Y2);
+               glVertex3f(center.x + Radius2*X1, center.y + Z2, center.z + Radius2*Y1);
+*/
+glEnd();
+
+                }
+        }
+/*
+            // insert the normal data
+               n.push_back(glm::vec3(X1,Z1,Y1)/ glm::length(glm::vec3(X1,Z1,Y1)));
+              n.push_back(glm::vec3(X2,Z1,Y2)/ glm::length(glm::vec3(X2,Z1,Y2)));
+              n.push_back(glm::vec3(X2,Z2,Y2)/ glm::length(glm::vec3(X2,Z2,Y2)));
+              n.push_back(glm::vec3(X1,Z1,Y1)/ glm::length(glm::vec3(X1,Z1,Y1)));
+              n.push_back(glm::vec3(X2,Z2,Y2)/ glm::length(glm::vec3(X2,Z2,Y2)));
+              n.push_back(glm::vec3(X1,Z2,Y1)/ glm::length(glm::vec3(X1,Z2,Y1)));
+              */
+}
+
 
 void GL1Renderer::DrawLine(Vector3 a, Vector3 b){
     Vector3 c = Vector3();

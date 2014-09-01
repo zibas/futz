@@ -58,6 +58,8 @@
 		<Unit filename="../../src/futz/core/components/AxisAlignedBoundingBox.h" />
 		<Unit filename="../../src/futz/core/components/BoundingBox.cpp" />
 		<Unit filename="../../src/futz/core/components/BoundingBox.h" />
+		<Unit filename="../../src/futz/core/components/BoundingSphere.cpp" />
+		<Unit filename="../../src/futz/core/components/BoundingSphere.h" />
 		<Unit filename="../../src/futz/core/components/BoxCollider.cpp" />
 		<Unit filename="../../src/futz/core/components/BoxCollider.h" />
 		<Unit filename="../../src/futz/core/components/DrawModel.cpp" />

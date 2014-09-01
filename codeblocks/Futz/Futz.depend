@@ -26,7 +26,7 @@
 1387858123 /home/ziba/Documents/svn/futz/src/futz/math/Vector3.h
 	"Matrix4.h"
 
-1387858123 source:/home/ziba/Documents/svn/futz/src/futz/core/components/AxisAlignedBoundingBox.cpp
+1409542739 source:/home/ziba/Documents/svn/futz/src/futz/core/components/AxisAlignedBoundingBox.cpp
 	"../../Futz.h"
 	"AxisAlignedBoundingBox.h"
 
@@ -111,18 +111,18 @@
 	<android/asset_manager.h>
 	<android/asset_manager_jni.h>
 
-1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/RendererBase.h
+1409552519 /home/ziba/Documents/svn/futz/src/futz/renderers/RendererBase.h
 	<vector>
 	"../camera/Camera.h"
 	"../models/Model.h"
 	"../math/Vector3.h"
 	<stdio.h>
 
-1387858123 /home/ziba/Documents/svn/futz/src/futz/core/components/AxisAlignedBoundingBox.h
+1409542590 /home/ziba/Documents/svn/futz/src/futz/core/components/AxisAlignedBoundingBox.h
 	"../Component.h"
 	"../../models/Model.h"
 
-1409507229 source:/home/ziba/Documents/svn/futz/src/futz/core/components/BoundingBox.cpp
+1409551884 source:/home/ziba/Documents/svn/futz/src/futz/core/components/BoundingBox.cpp
 	"../../Futz.h"
 	"BoundingBox.h"
 
@@ -148,11 +148,13 @@
 1387858123 /home/ziba/Documents/svn/futz/src/futz/core/components/DrawModel.h
 	"../Component.h"
 
-1387858123 source:/home/ziba/Documents/svn/futz/src/futz/core/Node.cpp
+1409552327 source:/home/ziba/Documents/svn/futz/src/futz/core/Node.cpp
 	"../Futz.h"
+	"components/AxisAlignedBoundingBox.h"
 	"components/BoxCollider.h"
 	"components/BoundingBox.h"
 	"components/DrawModel.h"
+	"components/BoundingSphere.h"
 	"Node.h"
 	<stdio.h>
 
@@ -226,7 +228,7 @@
 1387858123 /home/ziba/Documents/svn/futz/src/futz/platforms/FutzLayer.h
 	"SystemLayerBase.h"
 
-1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/gl1/GL1Renderer.h
+1409552551 /home/ziba/Documents/svn/futz/src/futz/renderers/gl1/GL1Renderer.h
 	"../RendererBase.h"
 	"../../models/Model.h"
 
@@ -409,13 +411,14 @@
 	"../../models/Model.h"
 	"../../models/Triangle.h"
 
-1409507229 source:/home/ziba/Documents/svn/futz/src/futz/renderers/gl1/GL1Renderer.cpp
+1409607296 source:/home/ziba/Documents/svn/futz/src/futz/renderers/gl1/GL1Renderer.cpp
 	"GL1Renderer.h"
 	<OpenGL/gl.h>
 	<OpenGL/glu.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	<stdio.h>
+	<math.h>
 	<vector>
 	"../../models/Model.h"
 	"../../models/Triangle.h"
@@ -452,4 +455,14 @@
 	<sstream>
 	<iostream>
 	<iomanip>
+
+1409607718 source:/home/ziba/Documents/svn/futz/src/futz/core/components/BoundingSphere.cpp
+	"../../Futz.h"
+	"BoundingSphere.h"
+	<stdlib.h>
+	<math.h>
+
+1409552351 /home/ziba/Documents/svn/futz/src/futz/core/components/BoundingSphere.h
+	"../Component.h"
+	"../../models/Model.h"
 

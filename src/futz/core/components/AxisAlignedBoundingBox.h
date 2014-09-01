@@ -8,6 +8,9 @@ class AxisAlignedBoundingBox : public Component {
     private:
         float width;
         Model* model;
+        bool hasModel = false;
+        void ReadModel(Model*);
+
     public:
         int extremeIndices[6];
         Vector3 v1,v2,v3,v4,v5,v6,v7,v8;
@@ -20,8 +23,7 @@ class AxisAlignedBoundingBox : public Component {
         void Draw();
         void DrawLocal(){};
         void SetLocalVerticesFromExtremes();
-
-        void ReadModel(Model*);
+        void SetModel(Model*);
 };
 
 #endif
