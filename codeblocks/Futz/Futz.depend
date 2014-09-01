@@ -1,0 +1,455 @@
+# depslib dependency file v1.0
+1409507231 source:/home/ziba/Documents/svn/futz/src/futz/3rdParty/stb_image.cpp
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/camera/Camera.cpp
+	"Camera.h"
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/camera/Camera.h
+	"../math/Matrix4.h"
+	"../math/Vector3.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/math/Matrix4.h
+	"Quaternion.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/math/Quaternion.h
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/math/Vector3.h
+	"Matrix4.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/core/components/AxisAlignedBoundingBox.cpp
+	"../../Futz.h"
+	"AxisAlignedBoundingBox.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/Futz.h
+	<string.h>
+	"input/Input.h"
+	"input/InputEventQueue.h"
+	"GameBase.h"
+	"TimeKeeper.h"
+	"camera/Camera.h"
+	"models/Model.h"
+	"core/Node.h"
+	"core/Profiler.h"
+	"scenegraph/SceneGraph.h"
+	"platforms/SystemLayerBase.h"
+	"renderers/RendererBase.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/input/Input.h
+	"InputEventQueue.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/input/InputEventQueue.h
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/GameBase.h
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/TimeKeeper.h
+	<time.h>
+	<sys/time.h>
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/models/Model.h
+	<stdio.h>
+	<vector>
+	<map>
+	<Windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GLUT/glut.h>
+	<OpenGLES/ES1/gl.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	"Triangle.h"
+	"Material.h"
+	"../math/Matrix4.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/models/Triangle.h
+	<string>
+	"../math/Vector3.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/models/Material.h
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Node.h
+	<map>
+	<vector>
+	"../models/Model.h"
+	"Component.h"
+	"Transform.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Component.h
+	"Node.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Transform.h
+	"../math/Vector3.h"
+	"../math/Matrix4.h"
+	"../math/Quaternion.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/Profiler.h
+	<string>
+	<stack>
+	<map>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/scenegraph/SceneGraph.h
+	"../core/Node.h"
+	<map>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/platforms/SystemLayerBase.h
+	<string>
+	<sys/types.h>
+	<android/asset_manager.h>
+	<android/asset_manager_jni.h>
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/RendererBase.h
+	<vector>
+	"../camera/Camera.h"
+	"../models/Model.h"
+	"../math/Vector3.h"
+	<stdio.h>
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/components/AxisAlignedBoundingBox.h
+	"../Component.h"
+	"../../models/Model.h"
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/core/components/BoundingBox.cpp
+	"../../Futz.h"
+	"BoundingBox.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/components/BoundingBox.h
+	"../Component.h"
+	"../../models/Model.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/core/components/BoxCollider.cpp
+	"../../Futz.h"
+	"BoxCollider.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/components/BoxCollider.h
+	"../primatives/Box.h"
+	"../Component.h"
+	"../../models/Model.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/primatives/Box.h
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/core/components/DrawModel.cpp
+	"../../Futz.h"
+	"DrawModel.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/core/components/DrawModel.h
+	"../Component.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/core/Node.cpp
+	"../Futz.h"
+	"components/BoxCollider.h"
+	"components/BoundingBox.h"
+	"components/DrawModel.h"
+	"Node.h"
+	<stdio.h>
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/core/Profiler.cpp
+	"../Futz.h"
+	<iostream>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/core/Transform.cpp
+	"Transform.h"
+	"Node.h"
+	<stdio.h>
+
+1409507231 source:/home/ziba/Documents/svn/futz/src/futz/Futz.cpp
+	<Windows.h>
+	<stdio.h>
+	"Futz.h"
+	"models/Model.h"
+	"models/wavefront/WavefrontModel.h"
+	"platforms/FutzGlut.h"
+	"platforms/FutzSDL.h"
+	"platforms/FutzSDL2.h"
+	"platforms/FutzAndroid.h"
+	"platforms/IOS/FutzIOS.h"
+	"platforms/FutzDreamcast.h"
+	"renderers/dreamcast/DreamcastRenderer.h"
+	"platforms/FutzLayer.h"
+	"renderers/gl1/GL1Renderer.h"
+	"renderers/gl3/GL3Renderer.h"
+	"renderers/gles1/GLES1Renderer.h"
+	"renderers/RendererBase.h"
+	"renderers/dummy/DummyRenderer.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/models/wavefront/WavefrontModel.h
+	<fstream>
+	<string>
+	"../Model.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/platforms/FutzGlut.h
+	"SystemLayerBase.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/platforms/FutzSDL.h
+	"SystemLayerBase.h"
+	"SDL.h"
+	"SDL_opengl.h"
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+
+1409514368 /home/ziba/Documents/svn/futz/src/futz/platforms/FutzSDL2.h
+	"SystemLayerBase.h"
+	"SDL.h"
+	"SDL_opengl.h"
+	"SDL2/SDL.h"
+	"SDL2/SDL_opengl.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/platforms/FutzAndroid.h
+	<android/log.h>
+	<string.h>
+	"SystemLayerBase.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/platforms/IOS/FutzIOS.h
+	"SystemLayerBase.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/platforms/FutzDreamcast.h
+	<kos.h>
+	"SystemLayerBase.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/dreamcast/DreamcastRenderer.h
+	"../RendererBase.h"
+	"../../models/Model.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/platforms/FutzLayer.h
+	"SystemLayerBase.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/gl1/GL1Renderer.h
+	"../RendererBase.h"
+	"../../models/Model.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/gl3/GL3Renderer.h
+	"../RendererBase.h"
+	"../../models/Model.h"
+
+1409507229 /home/ziba/Documents/svn/futz/src/futz/renderers/gles1/GLES1Renderer.h
+	<OpenGLES/ES1/gl.h>
+	<OpenGLES/ES1/glext.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	"../RendererBase.h"
+	"../../models/Model.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/renderers/dummy/DummyRenderer.h
+	"../RendererBase.h"
+	"../../models/Model.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/GameBase.cpp
+	"GameBase.h"
+	<stdio.h>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/input/Input.cpp
+	"Input.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/input/InputEventQueue.cpp
+	"InputEventQueue.h"
+	<stdio.h>
+	<stdlib.h>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/math/Matrix4.cpp
+	"Matrix4.h"
+	<math.h>
+	<stdio.h>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/math/Quaternion.cpp
+	"Quaternion.h"
+	<math.h>
+	<stdio.h>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/math/Vector3.cpp
+	"Vector3.h"
+	<stdio.h>
+	<math.h>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/models/dummy/DummyModel.cpp
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/models/Material.cpp
+	<string>
+	"Material.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/models/Model.cpp
+	<cstring>
+	<sstream>
+	<iostream>
+	<string>
+	"Model.h"
+	"../Futz.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/models/Triangle.cpp
+	"Triangle.h"
+	"Triangle.h"
+	"../math/Vector3.h"
+	<string>
+	<vector>
+	<stdio.h>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/models/wavefront/WavefrontModel.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+	<cstring>
+	<vector>
+	"../../Futz.h"
+	"../../math/Vector3.h"
+	"../Triangle.h"
+	"../Material.h"
+	"WavefrontModel.h"
+	<sys/types.h>
+	<android/asset_manager.h>
+	<android/asset_manager_jni.h>
+	"platforms/FutzAndroid.h"
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/platforms/FutzAndroid.cpp
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<jni.h>
+	<sstream>
+	<sys/types.h>
+	<android/asset_manager.h>
+	<android/asset_manager_jni.h>
+	"../Futz.h"
+	"FutzAndroid.h"
+	"../3rdParty/stb_image.h"
+	"GameBase.h"
+
+1387858123 /home/ziba/Documents/svn/futz/src/futz/3rdParty/stb_image.h
+	"stb_image.cpp"
+
+1409507231 /home/ziba/Documents/svn/futz/src/futz/3rdParty/stb_image.cpp
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/platforms/FutzDreamcast.cpp
+	"../Futz.h"
+	"FutzDreamcast.h"
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/platforms/FutzGlut.cpp
+	<Windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GLUT/glut.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<glut.h>
+	<GL/glut.h>
+	"../Futz.h"
+	<stdio.h>
+	"FutzGlut.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/platforms/FutzLayer.cpp
+	"../Futz.h"
+	"FutzLayer.h"
+	<stdio.h>
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/platforms/FutzSDL.cpp
+	"../Futz.h"
+	"FutzSDL.h"
+
+1409538157 source:/home/ziba/Documents/svn/futz/src/futz/platforms/FutzSDL2.cpp
+	"../Futz.h"
+	"FutzSDL2.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/platforms/SystemLayerBase.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+	<Windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GLUT/glut.h>
+	<OpenGLES/ES1/gl.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	"../Futz.h"
+	"../3rdParty/stb_image.h"
+	"SystemLayerBase.h"
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/renderers/dreamcast/DreamcastRenderer.cpp
+	"DreamcastRenderer.h"
+	<kos.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<png/png.h>
+	<jpeg/jpeg.h>
+	<stdio.h>
+	<vector>
+	"../../models/Model.h"
+	"../../models/Triangle.h"
+	"../../Futz.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/renderers/dummy/DummyRenderer.cpp
+	"DummyRenderer.h"
+	<stdio.h>
+	<vector>
+	"../../models/Model.h"
+	"../../models/Triangle.h"
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/renderers/gl1/GL1Renderer.cpp
+	"GL1Renderer.h"
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdio.h>
+	<vector>
+	"../../models/Model.h"
+	"../../models/Triangle.h"
+	"../../Futz.h"
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/renderers/gl3/GL3Renderer.cpp
+	"GL3Renderer.h"
+	<stdio.h>
+	<vector>
+	"../../models/Model.h"
+	"../../models/Triangle.h"
+
+1409507229 source:/home/ziba/Documents/svn/futz/src/futz/renderers/gles1/GLES1Renderer.cpp
+	"GLES1Renderer.h"
+	<stdio.h>
+	<vector>
+	"../../models/Model.h"
+	"../../models/Triangle.h"
+	"../../Futz.h"
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/scenegraph/SceneGraph.cpp
+	"../Futz.h"
+	"../scenegraph/SceneGraph.h"
+	"../core/Node.h"
+	"../core/components/DrawModel.h"
+	<algorithm>
+	<stdio.h>
+	<map>
+
+1387858123 source:/home/ziba/Documents/svn/futz/src/futz/TimeKeeper.cpp
+	"Futz.h"
+	"TimeKeeper.h"
+	<stdio.h>
+	<sstream>
+	<iostream>
+	<iomanip>
+
