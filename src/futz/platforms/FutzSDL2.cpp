@@ -46,9 +46,8 @@ void FutzSDL2::Initialize(int argc, char** argv){
 	if (!displayWindow){
 		futz->Log("Error: Unable to initialize SDL2 display window");
 	}
-	
-	checkSDLError(__LINE__);
 
+	checkSDLError(__LINE__);
 	context = SDL_GL_CreateContext(displayWindow);
 	checkSDLError(__LINE__);
 	/* This makes our buffer swap syncronized with the monitor's vertical refresh */
@@ -108,24 +107,12 @@ void FutzSDL2::MainLoop(){
 			//Handle user quit
 			switch (event.type) {
 			case SDL_MOUSEMOTION:
-				//futz->input.SetMouse(event.motion.x, event.motion.y);
+				futz->input.SetMouse(event.motion.x, event.motion.y);
 				break;
 			case SDL_TEXTINPUT:
-				ch = *event.text.text;
-				//futz->input.SetDown(ch);
-				//futz->input.SetUp(ch);
-				//Futz::Log("key down");
-
 				break;
 			case SDL_KEYDOWN:
-				Futz::Log("key press");
 				futz->input.SetDown(this->EventToChar(event));
-				
-				//if ((event.key.keysym.unicode & 0xFF80) == 0) {
-					//ch = event.key.keysym.sym .unicode & 0x7F;
-					//futz->input.SetDown(ch);
-				//}
-				
 				break;
 			case SDL_KEYUP:
 				futz->input.SetUp(this->EventToChar(event));
@@ -149,16 +136,16 @@ void FutzSDL2::MainLoop(){
 
 void FutzSDL2::ToggleFullscreen(){
 	Futz* futz = Futz::Instance();
-	/*
 	if (!futz->platform->isFullscreen){
-		screen = SDL_SetVideoMode(desktopWidth, desktopHeight, 32, SDL_OPENGL);
-		Resize(desktopWidth, desktopHeight);
+		SDL_DisplayMode displayMode;
+		SDL_SetWindowFullscreen(displayWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
+		int should_be_zero = SDL_GetCurrentDisplayMode(0, &displayMode);
+		Resize(displayMode.w, displayMode.h);
 	}
 	else {
-		screen = SDL_SetVideoMode(futz->platform->width, futz->platform->height, 32, SDL_OPENGL);
+		SDL_SetWindowFullscreen(displayWindow, 0);
 		Resize(futz->platform->width, futz->platform->height);
 	}
-	*/
 	futz->platform->isFullscreen = !futz->platform->isFullscreen;
 }
 FutzSDL2::~FutzSDL2() {
