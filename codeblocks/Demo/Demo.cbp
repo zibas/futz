@@ -10,6 +10,7 @@
 				<Option output="bin/Debug/Demo" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="../../src/demo" />
 				<Option object_output="obj/Debug/" />
+				<Option external_deps="../Futz/bin/Debug/libfutz_sdl2.a;" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
