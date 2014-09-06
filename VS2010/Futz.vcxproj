@@ -86,6 +86,7 @@
     <ClCompile Include="..\src\futz\camera\Camera.cpp" />
     <ClCompile Include="..\src\futz\core\components\AxisAlignedBoundingBox.cpp" />
     <ClCompile Include="..\src\futz\core\components\BoundingBox.cpp" />
+    <ClCompile Include="..\src\futz\core\components\BoundingSphere.cpp" />
     <ClCompile Include="..\src\futz\core\components\BoxCollider.cpp" />
     <ClCompile Include="..\src\futz\core\components\DrawModel.cpp" />
     <ClCompile Include="..\src\futz\core\Node.cpp" />
@@ -124,6 +125,7 @@
     <ClInclude Include="..\src\futz\core\Component.h" />
     <ClInclude Include="..\src\futz\core\components\AxisAlignedBoundingBox.h" />
     <ClInclude Include="..\src\futz\core\components\BoundingBox.h" />
+    <ClInclude Include="..\src\futz\core\components\BoundingSphere.h" />
     <ClInclude Include="..\src\futz\core\components\BoxCollider.h" />
     <ClInclude Include="..\src\futz\core\components\DrawModel.h" />
     <ClInclude Include="..\src\futz\core\Node.h" />

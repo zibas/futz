@@ -2,7 +2,7 @@
 
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
-
+#define M_PI 3.14159265359
 #ifdef OSX
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
