@@ -23,7 +23,10 @@ public:
 	Vector3 center;
 	Vector3 up;
 
-	float followDistance;
+	float viewportWidth;
+	float viewportHeight;
+
+	double followDistance;
 
 	Camera();
 	virtual ~Camera();
@@ -44,12 +47,21 @@ public:
 	void ComputeTransformOrbitCenter();
 	void ComputeTransformFollowCenter();
 
+	void SetViewport(float width, float height){
+		viewportHeight = height;
+		viewportWidth = width;
+	};
+	void SetFieldOfView(float newFOV);
+	double GetFieldOfView(){ return fieldOfView; }
 	void SetFollowCenter();
 	void SetOrbit();
 
 	void Print();
 
 private:
+
+	float fieldOfView;
+
 	double panX;
 	double panY;
 	double panZ;

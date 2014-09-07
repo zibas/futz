@@ -47,6 +47,15 @@ void GL1Renderer::ApplyCamera(Camera camera){
 	glMultMatrixf(camera.transform.values);
 }
 
+void GL1Renderer::SetCameraParameters(Camera* camera){
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	gluPerspective((GLfloat)camera->GetFieldOfView(), (GLfloat)camera->viewportWidth / (GLfloat)camera->viewportHeight, 0.1f, 500.0f);
+	glMatrixMode(GL_MODELVIEW);
+}
+
+
 void GL1Renderer::StartTransform(float* transformValues){
 	glPushMatrix();
 	glMultMatrixf(transformValues);

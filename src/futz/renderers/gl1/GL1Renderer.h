@@ -27,6 +27,8 @@ public:
     void DrawLine(Vector3 a, Vector3 b, Vector3 c);
     void DrawLine(Vector3 a, Vector3 b);
 	void Resize(int width, int height);
+	void SetCameraParameters(Camera* camera);
+
 private:
 	void DrawWithArrays(Model*);
 	void DrawImmediate(Model);

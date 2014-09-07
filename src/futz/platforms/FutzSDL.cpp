@@ -22,6 +22,7 @@ void FutzSDL::Initialize(int argc, char** argv){
 	desktopHeight = bestVideoInfo->current_h;
 	screen = SDL_SetVideoMode( futz->platform->width, futz->platform->height, 32, SDL_OPENGL );
 	SDL_WM_SetCaption( "Futz - SDL", NULL );
+	Futz::Instance()->camera->SetViewport(futz->platform->width, futz->platform->height);
 
 	Futz::Instance()->renderer->Initialize(futz->platform->width,futz->platform->height);
 

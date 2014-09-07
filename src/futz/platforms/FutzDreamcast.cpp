@@ -24,6 +24,8 @@ void FutzDreamcast::Initialize(int argc, char** argv){
 	cont_state_t *state;
 	static int dpad = 0;
 	pvr_init(&params);
+	Futz::Instance()->camera->SetViewport(futz->platform->width, futz->platform->height);
+
 	Futz::Instance()->renderer->Initialize(futz->platform->width,futz->platform->height);
 	futz->gameObject->Start();
 
