@@ -17,6 +17,8 @@
 void FutzAndroid::Initialize(int argc, char** argv){
 	Futz::Log("Initializing Android abstraction layer");
 	//Futz::Instance()->InitWindow(10,10);
+	Futz::Instance()->camera->SetViewport(futz->platform->width, futz->platform->height);
+
 	this->InitOpenGL(10,10);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
 	Futz::Instance()->gameObject->Start();

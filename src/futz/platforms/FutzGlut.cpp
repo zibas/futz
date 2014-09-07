@@ -47,7 +47,8 @@ void FutzGlut::Initialize(int argc, char** argv) {
 	glutTimerFunc(500, FutzGlut::Timer, 1);
 
 	Futz* futz = Futz::Instance();
-	Futz::Instance()->renderer->Initialize(1024,700);
+	Futz::Instance()->camera->SetViewport(futz->platform->width, futz->platform->height);
+	Futz::Instance()->renderer->Initialize(futz->platform->width, futz->platform->height);
 
 	futz->gameObject->Start();
 

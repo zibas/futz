@@ -52,7 +52,7 @@ void FutzSDL2::Initialize(int argc, char** argv){
 	checkSDLError(__LINE__);
 	/* This makes our buffer swap syncronized with the monitor's vertical refresh */
 	//SDL_GL_SetSwapInterval(1);
-
+	Futz::Instance()->camera.SetViewport(futz->platform->width, futz->platform->height);
 	Futz::Instance()->renderer->Initialize(futz->platform->width, futz->platform->height);
 
 	Resize(futz->platform->width, futz->platform->height);
@@ -86,6 +86,7 @@ char FutzSDL2::EventToChar(SDL_Event event){
 	else if (event.key.keysym.sym == SDLK_n){ key = 'n'; }
 	else if (event.key.keysym.sym == SDLK_r){ key = 'r'; }
 	else if (event.key.keysym.sym == SDLK_s){ key = 's'; }
+	else if (event.key.keysym.sym == SDLK_v){ key = 'v'; }
 	else if (event.key.keysym.sym == SDLK_w){ key = 'w'; }
 	else if (event.key.keysym.sym == SDLK_ESCAPE){ key = 27; }
 

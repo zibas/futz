@@ -92,6 +92,12 @@ void Demo::HandleInput(){
     if(futz->input.OnDown('c')){
         futz->camera.Print();
     }
+	if (futz->input.OnDown('v')){
+		futz->camera.SetFieldOfView(futz->camera.GetFieldOfView() + 1);
+	}
+	if (futz->input.OnDown('b')){
+		futz->camera.SetFieldOfView(futz->camera.GetFieldOfView() - 1);
+	}
     if(futz->input.OnDown(FUTZ_BACK)){
         exit(0);
     }

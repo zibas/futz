@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "../Futz.h"
 #include <stdio.h>
 
 
@@ -6,6 +7,8 @@ Camera::Camera() {
 	mode = FUTZ_FREE_CAM;
 	transform = Matrix4();
 	rotation = Quaternion();
+
+	fieldOfView = 60;
 
 	up.x = 0;
 	up.y = 1;
@@ -156,6 +159,11 @@ void Camera::RotZ(double amount)
 	rotZ += amount;
 }
 
+void Camera::SetFieldOfView(float newFOV){
+	fieldOfView = newFOV;
+	Futz::Instance()->renderer->SetCameraParameters(this);
+}
+
 void Camera::SetFollowCenter(){
 	mode = FUTZ_FOLLOW_CENTER_CAM;
 }
@@ -174,7 +182,7 @@ void Camera::Print(){
     center.Print();
     printf("Rotation:\n");
     printf("RotX: %f,\tRotY: %f,\tRotZ: %f,\n",rotX, rotY, rotZ);
-
+	printf("Field of view: %f\n", fieldOfView);
     printf("--------\n");
 }
 
