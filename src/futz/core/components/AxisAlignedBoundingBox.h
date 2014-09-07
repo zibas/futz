@@ -8,7 +8,7 @@ class AxisAlignedBoundingBox : public Component {
     private:
         float width;
         Model* model;
-        bool hasModel = false;
+        bool hasModel;
         void ReadModel(Model*);
 
     public:

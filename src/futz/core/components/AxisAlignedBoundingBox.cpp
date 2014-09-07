@@ -3,6 +3,7 @@
 
 AxisAlignedBoundingBox::AxisAlignedBoundingBox(){
     name = "AxisAlignedBoundingBox";
+    hasModel = false;
 }
 
 void AxisAlignedBoundingBox::Start(){

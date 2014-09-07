@@ -14,6 +14,7 @@ SOURCES_SHARED = Futz.cpp \
       core/Profiler.cpp \
       core/components/AxisAlignedBoundingBox.cpp \
       core/components/BoundingBox.cpp \
+      core/components/BoundingSphere.cpp \
       core/components/BoxCollider.cpp \
       core/components/DrawModel.cpp \
       scenegraph/SceneGraph.cpp \

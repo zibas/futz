@@ -21,6 +21,13 @@ ifeq ($(LAYER),SDL)
 else ifeq ($(LAYER),SDL2)
 	LIBS = -L../ -L/usr/local/lib -lm  -L../futz/bin/ -lfutz_sdl2 -lGL -lGLU -lSDL2
 	EXECUTABLE=$(EXECUTABLE_SDL2)
+	ifeq ($(UNAME),Darwin)
+	  DEFINES=-D OSX
+	  LIBS = -L../ -L/usr/local/lib -lm  -L../futz/bin/ -lfutz_sdl2 -lGL -lGLU
+	  LIBS += -L"/System/Library/Frameworks/OpenGL.framework/Libraries"
+	  FRAMEWORK = -framework SDL2
+	  FRAMEWORK += -framework OpenGL 
+	endif
 else
 	LIBS = -L../ -L/usr/local/lib -lm  -L../futz/bin/ -lfutz_glut -lGL -lGLU -lglut
 	EXECUTABLE=$(EXECUTABLE_GLUT)
