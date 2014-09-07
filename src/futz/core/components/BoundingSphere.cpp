@@ -25,13 +25,9 @@ void BoundingSphere::ReadModel(Model* m){
     //Bug: the max distance isn't the distance of any one dimension of a triplet, it's the whole vertex's distance from the center
     for(std::vector<Vector3>::iterator it = m->vertices.begin(); it != m->vertices.end(); ++it) {
 		if((*it).Length() > maxVertexDistanceFromCenter){
-                            printf("* %d %f > %f\n",c,(*it).Length(),maxVertexDistanceFromCenter);
-
                 maxVertexDistanceFromCenter = (*it).Length();
 
-		} else {
-            printf("%d %f < %f\n",c,(*it).Length(),maxVertexDistanceFromCenter);
-        }
+		}
 	}
 
 }
@@ -39,7 +35,6 @@ void BoundingSphere::ReadModel(Model* m){
 void BoundingSphere::Update(){
     center = ((Node*)node)->transform.position;
     radius = ((Node*)node)->transform.scale * maxVertexDistanceFromCenter;
-    //radius = maxVertexDistanceFromCenter;
 }
 
 void BoundingSphere::Draw(){
