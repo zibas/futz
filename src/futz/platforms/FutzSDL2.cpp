@@ -67,6 +67,7 @@ void FutzSDL2::Resize(int width, int height){
 	if (height == 0){
 		height = 1;
 	}
+	Futz::Instance()->camera.SetViewport(width, height);
 
 	Futz::Instance()->renderer->Resize(width, height);
 
@@ -83,11 +84,30 @@ char FutzSDL2::EventToChar(SDL_Event event){
 	else if (event.key.keysym.sym == SDLK_g){ key = 'g'; }
 	else if (event.key.keysym.sym == SDLK_h){ key = 'h'; }
 	else if (event.key.keysym.sym == SDLK_i){ key = 'i'; }
+
 	else if (event.key.keysym.sym == SDLK_n){ key = 'n'; }
+	else if (event.key.keysym.sym == SDLK_o){ key = 'o'; }
+	else if (event.key.keysym.sym == SDLK_p){ key = 'p'; }
+	else if (event.key.keysym.sym == SDLK_q){ key = 'q'; }
 	else if (event.key.keysym.sym == SDLK_r){ key = 'r'; }
 	else if (event.key.keysym.sym == SDLK_s){ key = 's'; }
+
+
 	else if (event.key.keysym.sym == SDLK_v){ key = 'v'; }
 	else if (event.key.keysym.sym == SDLK_w){ key = 'w'; }
+
+
+
+	else if (event.key.keysym.sym == SDLK_0){ key = '0'; }
+	else if (event.key.keysym.sym == SDLK_1){ key = '1'; }
+	else if (event.key.keysym.sym == SDLK_2){ key = '2'; }
+	else if (event.key.keysym.sym == SDLK_3){ key = '3'; }
+	else if (event.key.keysym.sym == SDLK_4){ key = '4'; }
+	else if (event.key.keysym.sym == SDLK_5){ key = '5'; }
+	else if (event.key.keysym.sym == SDLK_6){ key = '6'; }
+	else if (event.key.keysym.sym == SDLK_7){ key = '7'; }
+	else if (event.key.keysym.sym == SDLK_8){ key = '8'; }
+	else if (event.key.keysym.sym == SDLK_9){ key = '9'; }
 	else if (event.key.keysym.sym == SDLK_ESCAPE){ key = 27; }
 
 	return key;

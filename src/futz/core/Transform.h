@@ -22,6 +22,7 @@ class Transform {
 		Transform();
 		void SetOrbit(Vector3, double, Quaternion);
 		void SetPosition(double, double, double);
+		void SetPosition(Vector3 newPosition);
 		void SetRotation(double, double, double);
 		void SetScale(double);
 		void AddRelativeTranslation(double, double, double);

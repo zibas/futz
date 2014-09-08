@@ -17,9 +17,10 @@ void Ships::Start(){
 	int randZ;
 	int randRange = 50;
 
-	for(int i = 0; i < 15; i++){
+	//25 capped by .h
+	for(int i = 0; i < 25; i++){
 			randX = (rand() % randRange) - (randRange / 2);
-			randY = (rand() % randRange) - (randRange / 2);
+			randY =  (rand() % randRange) - (randRange / 2);
 			randZ = (rand() % randRange) - (randRange / 2);
 			ships[count] = new Node();
 			ships[count]->transform.SetPosition(randX, randY, randZ);

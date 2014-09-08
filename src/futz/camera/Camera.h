@@ -10,10 +10,8 @@
 #include "../math/Matrix4.h"
 #include "../math/Vector3.h"
 
-enum futzCameraModes {FUTZ_FOLLOW_CENTER_CAM, FUTZ_ORBIT_CENTER_CAM, FUTZ_FREE_CAM};
 class Camera {
 public:
-	futzCameraModes mode; 
 	Matrix4 transform;
 	Quaternion rotation;
 
@@ -21,7 +19,11 @@ public:
 	
 	Vector3 eye;
 	Vector3 center;
+
+
 	Vector3 up;
+	Vector3 forward;
+	Vector3 right;
 
 	float viewportWidth;
 	float viewportHeight;
@@ -43,24 +45,37 @@ public:
 	void RotY(double);
 	void RotZ(double);
 
+	void RotateCenter(Vector3 eulerDelta);
+	void Rotate(Vector3 eulerDelta);
+	void LookAt(Vector3 newCenter);
+
+
 	void ComputeTransform();
-	void ComputeTransformOrbitCenter();
-	void ComputeTransformFollowCenter();
+
 
 	void SetViewport(float width, float height){
 		viewportHeight = height;
 		viewportWidth = width;
 	};
 	void SetFieldOfView(float newFOV);
-	double GetFieldOfView(){ return fieldOfView; }
-	void SetFollowCenter();
-	void SetOrbit();
+	float GetFieldOfView(){ return fieldOfView; }
+	float GetNearDistance(){ return nearDistance; }
+	float GetFarDistance(){ return farDistance; }
 
 	void Print();
 
 private:
 
+	Vector3 centerRelativeToEye;
+
 	float fieldOfView;
+	float nearDistance;
+	float farDistance;
+
+	float heightNear;
+	float widthNear;
+	float heightFar;
+	float widthFar;
 
 	double panX;
 	double panY;
@@ -69,6 +84,8 @@ private:
 	double rotX;
 	double rotY;
 	double rotZ;
+
+	void CalculateFrustum();
 
 };
 
