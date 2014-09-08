@@ -56,6 +56,8 @@ Vector3 Vector3::operator *(const double & scaler)
 	return v3;
 }
 
+
+
 Vector3 Vector3::Transform(Matrix4 m){
     Matrix4 mat = Matrix4();
     Vector3 tv;

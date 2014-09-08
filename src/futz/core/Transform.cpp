@@ -45,6 +45,10 @@ void Transform::SetPosition(double x, double y, double z){
 	RecalculateMatrix();
 }
 
+void Transform::SetPosition(Vector3 newPosition){
+	SetPosition(newPosition.x, newPosition.y, newPosition.z);
+}
+
 void Transform::SetRotation(double x, double y, double z){
 	euler.x = x;
 	euler.y = y;

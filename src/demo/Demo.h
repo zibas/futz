@@ -11,6 +11,10 @@ private:
 	double turnSpeed;
 	float idleClock;
 	float idleDelay;
+	Node* cameraCenter;
+	Node* cameraEye;
+
+	void DrawAxis(float interval, int emphasis);
 
 public:
 	Asteroids asteroids;

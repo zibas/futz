@@ -51,7 +51,7 @@ void GL1Renderer::SetCameraParameters(Camera* camera){
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluPerspective((GLfloat)camera->GetFieldOfView(), (GLfloat)camera->viewportWidth / (GLfloat)camera->viewportHeight, 0.1f, 500.0f);
+	gluPerspective((GLfloat)camera->GetFieldOfView(), (GLfloat)camera->viewportWidth / (GLfloat)camera->viewportHeight, camera->GetNearDistance(), camera->GetFarDistance());
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -291,9 +291,5 @@ void GL1Renderer::Resize(int width, int height){
 	Futz::Log("Resizing open gl window");
 	glViewport(0, 0, width, height);
 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	gluPerspective(60.0f, (GLfloat)width / (GLfloat)height, 0.1f, 500.0f);
-	glMatrixMode(GL_MODELVIEW);
+	this->SetCameraParameters(&Futz::Instance()->camera);
 }

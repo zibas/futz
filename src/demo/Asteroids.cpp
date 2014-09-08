@@ -20,7 +20,7 @@ void Asteroids::Start(){
 	float randScale;
 	int randRange = 100;
 
-	for(int i = 0; i < 30; i++){
+	for(int i = 0; i < 100; i++){
 		randX = (rand() % randRange) - (randRange / 2);
 		randY = (rand() % randRange) - (randRange / 2);
 		randZ = (rand() % randRange) - (randRange / 2);
