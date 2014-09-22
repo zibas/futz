@@ -1,6 +1,7 @@
 #include "Camera.h"
 #include "../Futz.h"
 #include <stdio.h>
+#include <math.h>
 #define PI 3.14159265
 
 
@@ -232,7 +233,7 @@ void Camera::Rotate(Vector3 eulerDelta){
 	centerMat.SetIdentity();
 	centerMat.SetTranslation(centerRelativeToEye.x, centerRelativeToEye.y, centerRelativeToEye.z);
 	//centerMat.SetTranslation(center.x, center.y, center.z);
-	printf("centerMat z: %f\n", centerMat.values[14]);
+	//printf("centerMat z: %f\n", centerMat.values[14]);
 
 	Matrix4 resultMat = Matrix4();
 	resultMat.SetIdentity();
@@ -258,7 +259,7 @@ void Camera::Rotate(Vector3 eulerDelta){
 
 
 
-	printf("centerMat post transform z: %f\n", centerMat.values[14]);
+	//printf("centerMat post transform z: %f\n", centerMat.values[14]);
 
 	center.x = resultMat.values[12];
 	center.y = resultMat.values[13];
