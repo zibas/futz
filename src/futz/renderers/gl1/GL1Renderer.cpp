@@ -280,6 +280,7 @@ void GL1Renderer::DrawLine(Vector3 a, Vector3 b){
     DrawLine(a,b,c);
 }
 void GL1Renderer::DrawLine(Vector3 a, Vector3 b, Vector3 color){
+    glDisable ( GL_TEXTURE_2D );
     glBegin(GL_LINES);
     glColor3f(color.x, color.y, color.z);
     glVertex3f(a.x, a.y, a.z);

@@ -5,7 +5,7 @@
 
 BoundingSphere::BoundingSphere(){
     name = "BoundingSphere";
-    draw = true;
+    draw = false;
 }
 
 void BoundingSphere::Start(){

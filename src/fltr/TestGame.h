@@ -6,6 +6,7 @@
 #include "math/Vector3.h"
 #include "math/Matrix4.h"
 #include "math/Quaternion.h"
+#include "core/components/DrawAxis.h"
 
 #include "Fish.h"
 
@@ -17,12 +18,6 @@ private:
 	Vector3 fishPos;
 	Model* model;
 	Node* fish;
-
-	Model* modelShip;
-	Node* ship;
-
-	Model* model2;
-	Node* terrain;
 
 	double speed;
 	double turnSpeed;
