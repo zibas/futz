@@ -17,6 +17,7 @@ SOURCES_SHARED = Futz.cpp \
       core/components/BoundingSphere.cpp \
       core/components/BoxCollider.cpp \
       core/components/DrawModel.cpp \
+      core/components/DrawAxis.cpp \
       scenegraph/SceneGraph.cpp \
       models/Model.cpp \
       models/Material.cpp \

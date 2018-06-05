@@ -55,7 +55,7 @@ void Node::AddModel(Model* m){
 
    // ((AxisAlignedBoundingBox*)GetComponent("AxisAlignedBoundingBox"))->SetModel(m);
     ((BoundingBox*)GetComponent("BoundingBox"))->ReadModel(m);
-    ((BoundingSphere*)GetComponent("BoundingSphere"))->ReadModel(m);
+   // ((BoundingSphere*)GetComponent("BoundingSphere"))->ReadModel(m);
 }
 
 void Node::Update(){

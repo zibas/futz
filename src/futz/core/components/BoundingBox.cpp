@@ -3,7 +3,7 @@
 
 BoundingBox::BoundingBox(){
     name = "BoundingBox";
-    draw = true;
+    draw = false;
 }
 
 void BoundingBox::Start(){

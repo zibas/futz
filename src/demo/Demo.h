@@ -4,6 +4,7 @@
 
 #include "Asteroids.h"
 #include "Ships.h"
+#include "core/components/DrawAxis.h"
 
 class Demo : public GameBase {
 private:
@@ -13,8 +14,7 @@ private:
 	float idleDelay;
 	Node* cameraCenter;
 	Node* cameraEye;
-
-	void DrawAxis(float interval, int emphasis);
+	DrawAxis* drawAxis;
 
 public:
 	Asteroids asteroids;
