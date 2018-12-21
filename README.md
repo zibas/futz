@@ -41,7 +41,7 @@ Futz is C++ that compiles into a library for other C++ programs to use. It provi
  * A camera class
  
  ## Example Code
- Here's a snippit of what it looks like to use load and place a model.
+ Here's a snippit of what it looks like to load and place a model.
 
  
  ```c++
