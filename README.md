@@ -5,7 +5,8 @@
 Oh my. You've found Futz. This is a super casual, hobby project. I am making a cross-platform, 3D engine in my spare time. As one does.
 Also, its main target is the Dreamcast. 
 
-![](docs/FutzDemo2018.gif)
+![](docs/FutzDemo2018.gif) 
+
 
 ## How's it going?
 
@@ -21,6 +22,7 @@ Futz has platform (input and rendering) abstraction layers which allow it to run
 
 However, only SDL2 and Dreamcast are regularly tested.
 
+![](docs/FutzLife.gif)
 ## What can it do?
 
 Futz is C++ that compiles into a library for other C++ programs to use. It provides game engine features like:
@@ -70,6 +72,11 @@ Futz is C++ that compiles into a library for other C++ programs to use. It provi
  ## Compiling tips
  Warning! Several of the demos are out of date. Only expect src/demo to compile currently!
  
+ ### Windows
+ Should build with Visual Studio 2017.
+ Compiled demo and life binaries need to execute in a path along with a 32bit SDL2.dll and their assets folder.
+ 
+ ### Unix
  You'll need some dev libraries like SDL2 installed on your system. Make sure src/futz/bin exists.
 
  ```bash
