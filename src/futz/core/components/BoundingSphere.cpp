@@ -9,7 +9,6 @@ BoundingSphere::BoundingSphere(){
 }
 
 void BoundingSphere::Start(){
-	Futz::Log("BoundingSphere Start");
     center.x = 0;
     center.y = 0;
     center.z = 0;

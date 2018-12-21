@@ -8,7 +8,7 @@ DrawModel::DrawModel(){
 }
 
 void DrawModel::Start(){
-	Futz::Log("DrawModel Start");
+	//Futz::Log("DrawModel Start");
 
     if(model != NULL){
         map<string,Material>::iterator pair;
@@ -16,7 +16,7 @@ void DrawModel::Start(){
             if((*pair).second.rgba[3] < 1){
                 transparent = true;
                 ((Node*)node)->transparent = true;
-                Futz::Log("DrawModel: transparent");
+               // Futz::Log("DrawModel: transparent");
             }
         }
     } else {

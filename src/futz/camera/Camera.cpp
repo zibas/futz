@@ -166,6 +166,13 @@ void Camera::MoveForward(double amount){
 
 }
 
+
+void Camera::MoveUp(double amount)
+{
+	eye = eye + (up * amount);
+	center = center + (up * amount);
+}
+
 void Camera::Rotate(Vector3 eulerDelta){
 	Quaternion rotationToApply;
 
@@ -283,19 +290,6 @@ void Camera::PanX(double amount)
 	panX += amount;
 }
 
-void Camera::MoveUp(double amount)
-{
-	/*
-	switch(mode){
-		case FUTZ_FOLLOW_CENTER_CAM:
-			center.y += amount;
-			break;
-		case FUTZ_ORBIT_CENTER_CAM:
-			eye.y += amount;
-			break;
-	}
-	*/
-}
 
 void Camera::PanZ(double amount)
 {

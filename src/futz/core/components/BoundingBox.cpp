@@ -7,7 +7,6 @@ BoundingBox::BoundingBox(){
 }
 
 void BoundingBox::Start(){
-	Futz::Log("BoundingBox Start");
     width = 3;
 
     // top right
