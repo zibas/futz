@@ -30,8 +30,8 @@ private:
 #endif
 	
 public:
-	double lastTotalElapsedSeconds; 
-	double totalElapsedSeconds; 
+	double lastTotalElapsedSeconds = 0; 
+	double totalElapsedSeconds = 0; 
 	double delta; //seconds since last update
 
 	TimeKeeper();

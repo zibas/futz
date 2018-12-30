@@ -72,7 +72,6 @@ void TimeKeeper::UpdateLoop(){
 		Print();
 		frames = updates = 0;
 		nextStatisticsDue += statisticsPeriod;
-       // timerStack = std::stack<string>();
 	}
 
 	updates++;
