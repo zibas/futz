@@ -12,12 +12,13 @@
 
 class TestGame : public GameBase {
 private:
-    Fish* fish1;
+	const int MAXFISH = 4;
+	Fish* fish[4];
+	
 	float fishYrot;
 	float deltaZ;
 	Vector3 fishPos;
 	Model* model;
-	Node* fish;
 
 	double speed;
 	double turnSpeed;
