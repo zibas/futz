@@ -7,7 +7,7 @@ DEFINES=-D NONE
 FRAMEWORK=
 
 CC=g++
-CFLAGS=-c -Wall
+CFLAGS=-c -Wall -g
 SOURCES=main.cpp TestGame.cpp Fish.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 INCLUDES = -I. -I../include/ -I$(FUTZ_PATH)

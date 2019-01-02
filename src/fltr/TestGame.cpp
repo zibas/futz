@@ -15,25 +15,25 @@ TestGame::TestGame() {
 
 void TestGame::Start() {
 	Futz* futz = Futz::Instance();
+
 	for (int i = 0; i < MAXFISH; i++) {
-		fish[i] = new Fish();
-		fish[i]->id = i + 1;
-		fish[i]->Load();
+		Fish::FishHandle f = Fish::Create(i+1);
+		f->Load();
+		fishes.push_back(f);
 	}
-
-
+	
 	glClearColor(1.0, 1.0, 1.0, 0.0);
-
 	futz->camera.center.z = 0;
-
 }
 
 void TestGame::UpdateLoop() {
 	Futz* futz = Futz::Instance();
 	this->HandleInput();
-	for (int i = 0; i < MAXFISH; i++) {
-		fish[i]->Update();
+
+	for(auto fish : fishes){
+		fish->Update();
 	}
+
 	deltaZ = 0;
 }
 
@@ -52,19 +52,18 @@ void TestGame::HandleInput() {
 	double deltaX = 0;
 	double deltaY = 0;
 
-	for (int i = 0; i < MAXFISH; i++) {
-
-		if (futz->input.IsDown(FUTZ_UP, FUTZ_PLAYER_ONE)) {
-			fish[i]->ThrustOn(0, 1);
+	for(auto fish : fishes){
+		if (futz->input.IsDown(FUTZ_UP)) {
+			fish->ThrustOn(0, 1);
 		}
-		if (futz->input.IsDown(FUTZ_DOWN, FUTZ_PLAYER_TWO)) {
-			fish[i]->ThrustOn(0, -1);
+		if (futz->input.IsDown(FUTZ_DOWN)) {
+			fish->ThrustOn(0, -1);
 		}
 		if (futz->input.IsDown(FUTZ_LEFT)) {
-			fish[i]->ThrustOn(-1, 0);
+			fish->ThrustOn(-1, 0);
 		}
 		if (futz->input.IsDown(FUTZ_RIGHT)) {
-			fish[i]->ThrustOn(1, 0);
+			fish->ThrustOn(1, 0);
 		}
 	}
 
@@ -75,21 +74,18 @@ void TestGame::HandleInput() {
 		futz->camera.Print();
 		futz->camera.center.z = 0;
 
-
-		for (int i = 0; i < MAXFISH; i++) {
-
-			//cout << fish[i]->Status();
-			fish[i]->color = !fish[i]->color;
-			fish[i]->UpdateTexture();
-			switch (fish[i]->mood) {
+		for(auto fish : fishes){
+			fish->color = !fish->color;
+			fish->UpdateTexture();
+			switch (fish->mood) {
 			case Fish::NORMAL:
-				fish[i]->mood = Fish::HAPPY;
+				fish->mood = Fish::HAPPY;
 				break;
 			case Fish::HAPPY:
-				fish[i]->mood = Fish::SAD;
+				fish->mood = Fish::SAD;
 				break;
 			case Fish::SAD:
-				fish[i]->mood = Fish::NORMAL;
+				fish->mood = Fish::NORMAL;
 				break;
 			}
 
@@ -98,6 +94,7 @@ void TestGame::HandleInput() {
 	}
 
 	if (futz->input.IsDown(FUTZ_BACK)) {
+		fishes.clear();
 		exit(0);
 	}
 

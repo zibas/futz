@@ -1,6 +1,8 @@
 #include "GameBase.h"
 #include "Futz.h"
 #include "math/Vector3.h"
+#include <tr1/memory>
+
 
 class Fish {
 private:
@@ -24,84 +26,18 @@ public:
 	MOODS mood = NORMAL;
 	bool color = false;
 
+	typedef std::tr1::shared_ptr<Fish> FishHandle;
+
+	static FishHandle Create(int id);
+
 	void Load();
-
 	void UpdateTexture();
+	void ThrustOn(double x, double y);
+	void Update();
+	void PhysicsUpdate();
+	void ApplyDrag();
 
-
-	void ThrustOn(double x, double y) {
-		x *= speed;
-		y *= speed;
-		if (x != 0) {
-			thrust.x = x;
-		}
-		if (y != 0) {
-			thrust.y = y;
-		}
-		thrust.z = 0;
-	}
-
-	void Update() {
-		Futz* futz = Futz::Instance();
-		//node->transform.AddRelativeTranslation(1*futz->time.delta,0,0);
-		PhysicsUpdate();
-		node->transform.SetPosition(position.x, position.y, position.z);
-		thrust.x = 0;
-		thrust.y = 0;
-		thrust.z = 0;
-	}
-
-
-	void PhysicsUpdate() {
-		Futz* futz = Futz::Instance();
-		float delta = futz->time.delta;
-		acceleration = thrust;
-		velocity = velocity + (acceleration * delta);
-
-		position = position + (velocity * delta);
-		lastThrust = thrust;
-
-		ApplyDrag();
-	}
-
-	void ApplyDrag() {
-		Futz* futz = Futz::Instance();
-		float delta = futz->time.delta;
-
-		if (velocity.x > 0)
-		{
-			velocity.x -= drag.x * delta;
-			if (velocity.x < 0)
-			{
-				velocity.x = 0;
-			}
-		}
-		else if (velocity.x < 0)
-		{
-			velocity.x += drag.x * delta;
-			if (velocity.x > 0)
-			{
-				velocity.x = 0;
-			}
-		}
-
-		if (velocity.y > 0)
-		{
-			velocity.y -= drag.y * delta;
-			if (velocity.y < 0)
-			{
-				velocity.y = 0;
-			}
-		}
-		else if (velocity.y < 0)
-		{
-			velocity.y += drag.y * delta;
-			if (velocity.y > 0)
-			{
-				velocity.y = 0;
-			}
-		}
-	}
+	~Fish();
 
 	std::string Status() {
 		std::string status = "Fish status " + std::to_string(position.x);

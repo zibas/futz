@@ -13,8 +13,7 @@
 class TestGame : public GameBase {
 private:
 	const int MAXFISH = 4;
-	Fish* fish[4];
-	
+	std::vector<Fish::FishHandle> fishes;
 	float fishYrot;
 	float deltaZ;
 	Vector3 fishPos;
