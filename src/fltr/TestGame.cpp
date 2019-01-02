@@ -76,8 +76,6 @@ void TestGame::HandleInput() {
 		futz->camera.center.z = 0;
 
 
-	}
-	if (futz->input.OnUp('1')) {
 		for (int i = 0; i < MAXFISH; i++) {
 
 			//cout << fish[i]->Status();

@@ -1,7 +1,4 @@
-# To build with SDL:
-# make LAYER=SDL
-EXECUTABLE_GLUT=fltr
-EXECUTABLE_SDL=fltr_sdl
+EXECUTABLE_SDL=fltr
 FUTZ_PATH=../futz
 
 UNAME := $(shell uname)
@@ -11,34 +8,21 @@ FRAMEWORK=
 
 CC=g++
 CFLAGS=-c -Wall
-SOURCES=main.cpp TestGame.cpp
+SOURCES=main.cpp TestGame.cpp Fish.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 INCLUDES = -I. -I../include/ -I$(FUTZ_PATH)
 
-ifeq ($(LAYER),SDL)
-	LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl -lGL -lGLU -lSDL
-	EXECUTABLE=$(EXECUTABLE_SDL)
-	 #SDL 1.2 is kind of insane on OSX: http://www.digitalmars.com/d/archives/digitalmars/D/12078.html
-	ifeq ($(UNAME),Darwin)
-	  DEFINES=-D OSX
-	  LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl -lGL -lGLU
-	  LIBS += -L"/System/Library/Frameworks/OpenGL.framework/Libraries"
-	  LIBS += `sdl-config --libs`
-	  INCLUDES += `sdl-config --cflags`
-	  FRAMEWORK = -framework SDL
-	  FRAMEWORK += -framework OpenGL 
-	endif
-else
-	LIBS = -L../ -L/usr/local/lib -lm -L. -L$(FUTZ_PATH)/bin -lfutz_glut -lGL -lGLU -lglut 
-	EXECUTABLE=$(EXECUTABLE_GLUT)
-	ifeq ($(UNAME),Darwin)
-	  DEFINES=-D OSX
-	  LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_glut -lGL -lGLU
-	  LIBS += -L"/System/Library/Frameworks/OpenGL.framework/Libraries"
-	  FRAMEWORK = -framework GLUT
-	  FRAMEWORK += -framework OpenGL 
-	endif
-
+LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl -lGL -lGLU -lSDL
+EXECUTABLE=$(EXECUTABLE_SDL)
+ #SDL 1.2 is kind of insane on OSX: http://www.digitalmars.com/d/archives/digitalmars/D/12078.html
+ifeq ($(UNAME),Darwin)
+  DEFINES=-D OSX
+  LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl -lGL -lGLU
+  LIBS += -L"/System/Library/Frameworks/OpenGL.framework/Libraries"
+  LIBS += `sdl-config --libs`
+  INCLUDES += `sdl-config --cflags`
+  FRAMEWORK = -framework SDL
+  FRAMEWORK += -framework OpenGL 
 endif
 
 
