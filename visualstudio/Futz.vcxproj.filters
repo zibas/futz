@@ -61,9 +61,6 @@
     <Filter Include="Source Files\renderers\dummy">
       <UniqueIdentifier>{67b01329-06b0-489e-97be-f9b3615e8e1e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\renderers\gl3">
-      <UniqueIdentifier>{b0c1231a-b623-4f45-98fe-df036ffbfd2a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\renderers\gles1">
       <UniqueIdentifier>{13a2747d-9fbe-4d74-84fb-d4af9762420b}</UniqueIdentifier>
     </Filter>
@@ -168,9 +165,6 @@
     <ClCompile Include="..\src\futz\renderers\gles1\GLES1Renderer.cpp">
       <Filter>Source Files\renderers\gles1</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\futz\renderers\gl3\GL3Renderer.cpp">
-      <Filter>Source Files\renderers\gl3</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\futz\platforms\FutzSDL2.cpp">
       <Filter>Source Files\platforms</Filter>
     </ClCompile>
@@ -179,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="..\src\futz\core\components\DrawAxis.cpp">
       <Filter>Source Files\core\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\futz\renderers\RendererBase.cpp">
+      <Filter>Source Files\renderers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -286,9 +283,6 @@
     </ClInclude>
     <ClInclude Include="..\src\futz\renderers\gles1\GLES1Renderer.h">
       <Filter>Source Files\renderers\gles1</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\futz\renderers\gl3\GL3Renderer.h">
-      <Filter>Source Files\renderers\gl3</Filter>
     </ClInclude>
     <ClInclude Include="..\src\futz\platforms\FutzSDL2.h">
       <Filter>Source Files\platforms</Filter>

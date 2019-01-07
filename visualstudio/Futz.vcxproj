@@ -116,8 +116,8 @@
     <ClCompile Include="..\src\futz\renderers\dreamcast\DreamcastRenderer.cpp" />
     <ClCompile Include="..\src\futz\renderers\dummy\DummyRenderer.cpp" />
     <ClCompile Include="..\src\futz\renderers\gl1\GL1Renderer.cpp" />
-    <ClCompile Include="..\src\futz\renderers\gl3\GL3Renderer.cpp" />
     <ClCompile Include="..\src\futz\renderers\gles1\GLES1Renderer.cpp" />
+    <ClCompile Include="..\src\futz\renderers\RendererBase.cpp" />
     <ClCompile Include="..\src\futz\scenegraph\SceneGraph.cpp" />
     <ClCompile Include="..\src\futz\TimeKeeper.cpp" />
   </ItemGroup>
@@ -157,7 +157,6 @@
     <ClInclude Include="..\src\futz\renderers\dreamcast\DreamcastRenderer.h" />
     <ClInclude Include="..\src\futz\renderers\dummy\DummyRenderer.h" />
     <ClInclude Include="..\src\futz\renderers\gl1\GL1Renderer.h" />
-    <ClInclude Include="..\src\futz\renderers\gl3\GL3Renderer.h" />
     <ClInclude Include="..\src\futz\renderers\gles1\GLES1Renderer.h" />
     <ClInclude Include="..\src\futz\renderers\RendererBase.h" />
     <ClInclude Include="..\src\futz\scenegraph\SceneGraph.h" />

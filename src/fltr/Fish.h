@@ -1,8 +1,11 @@
 #include "GameBase.h"
 #include "Futz.h"
 #include "math/Vector3.h"
-#include <tr1/memory>
-
+#ifdef _WIN32
+#include <memory>
+#else
+#include <trl/memory>
+#endif
 
 class Fish {
 private:
@@ -22,11 +25,11 @@ public:
 	Model* model;
 	int id = 1;
 
-	enum MOODS {NORMAL, HAPPY, SAD};
+	enum MOODS { NORMAL, HAPPY, SAD };
 	MOODS mood = NORMAL;
 	bool color = false;
 
-	typedef std::tr1::shared_ptr<Fish> FishHandle;
+	typedef std::shared_ptr<Fish> FishHandle;
 
 	static FishHandle Create(int id);
 
