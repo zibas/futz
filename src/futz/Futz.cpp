@@ -50,8 +50,6 @@ FUTZ_PLATFORM_ANDROID
 
 #if FUTZ_RENDERER_GL1
 #include "renderers/gl1/GL1Renderer.h"
-#elif FUTZ_RENDERER_GL3
-#include "renderers/gl3/GL3Renderer.h"
 #elif FUTZ_RENDERER_GLES1
 #include "renderers/gles1/GLES1Renderer.h"
 #endif
@@ -66,66 +64,66 @@ FUTZ_PLATFORM_ANDROID
 	platform->Initialize
  */
 
-
-Futz::Futz() {
+Futz::Futz()
+{
 	Futz::Log("Setting platform");
-	#if FUTZ_PLATFORM_GLUT
-	this->platform = (SystemLayerBase*)new FutzGlut();
-	#elif FUTZ_PLATFORM_SDL
-	this->platform = (SystemLayerBase*)new FutzSDL();	
-	#elif FUTZ_PLATFORM_SDL2
-		this->platform = (SystemLayerBase*)new FutzSDL2();
-	#elif FUTZ_PLATFORM_ANDROID
-	this->platform = (SystemLayerBase*)new FutzAndroid();
-	#elif FUTZ_PLATFORM_IOS
-	this->platform = (SystemLayerBase*)new FutzIOS();
-	#elif FUTZ_PLATFORM_DREAMCAST
-	this->platform = (SystemLayerBase*)new FutzDreamcast();
-	this->renderer = (RendererBase*)new DreamcastRenderer();
-	#else
-	this->platform = (SystemLayerBase*)new FutzLayer();
-	this->renderer = (RendererBase*)new DummyRenderer();
-	#endif
-
-#if FUTZ_RENDERER_GL1
-	this->renderer = (RendererBase*)new GL1Renderer();
-#elif FUTZ_RENDERER_GL3
-	this->renderer = (RendererBase*)new GL3Renderer();
-#elif FUTZ_RENDERER_GLES1
-	this->renderer = (RendererBase*)new GLES1Renderer();
+#if FUTZ_PLATFORM_GLUT
+	this->platform = (SystemLayerBase *)new FutzGlut();
+#elif FUTZ_PLATFORM_SDL
+	this->platform = (SystemLayerBase *)new FutzSDL();
+#elif FUTZ_PLATFORM_SDL2
+	this->platform = (SystemLayerBase *)new FutzSDL2();
+#elif FUTZ_PLATFORM_ANDROID
+	this->platform = (SystemLayerBase *)new FutzAndroid();
+#elif FUTZ_PLATFORM_IOS
+	this->platform = (SystemLayerBase *)new FutzIOS();
+#elif FUTZ_PLATFORM_DREAMCAST
+	this->platform = (SystemLayerBase *)new FutzDreamcast();
+	this->renderer = (RendererBase *)new DreamcastRenderer();
+#else
+	this->platform = (SystemLayerBase *)new FutzLayer();
+	this->renderer = (RendererBase *)new DummyRenderer();
 #endif
 
+#if FUTZ_RENDERER_GL1
+	this->renderer = new GL1Renderer();
+#elif FUTZ_RENDERER_GLES1
+	this->renderer = (RendererBase *)new GLES1Renderer();
+#endif
 }
 
-void Futz::Start(int argc, char** argv)
+void Futz::Start(int argc, char **argv)
 {
 	platform->Initialize(argc, argv);
 }
 
 // Global static pointer used to ensure a single instance of the class.
-Futz* Futz::_instance = NULL;
+Futz *Futz::_instance = NULL;
 
-Futz* Futz::Instance()
+Futz *Futz::Instance()
 {
-   	// Only allow one instance of class to be generated.
-	if (!_instance){
+	// Only allow one instance of class to be generated.
+	if (!_instance)
+	{
 		_instance = new Futz;
 	}
 
 	return _instance;
 }
 
-void Futz::Update(){
+void Futz::Update()
+{
 	time.UpdateLoop();
-    profiler.Start("Update");
+	profiler.Start("Update");
 	gameObject->UpdateLoop();
-    input.Update(); // Input after game object, to wipe events
+	input.Update(); // Input after game object, to wipe events
 	scene.Update();
-    profiler.End();
+	profiler.End();
 }
 
-void Futz::Render(){
-    profiler.Start("Render");
+void Futz::Render()
+{
+	profiler.Start("Render");
 
 	this->renderer->StartFrame();
 
@@ -137,23 +135,24 @@ void Futz::Render(){
 
 	time.RenderLoop();
 	this->renderer->FinishFrame();
-    profiler.End();
+	profiler.End();
 }
 
-Model* Futz::LoadModel(char* filename){
+Model *Futz::LoadModel(char *filename)
+{
 	return new WavefrontModel(filename);
 }
 
-Futz::~Futz(){
-
+Futz::~Futz()
+{
 }
 
-
-void Futz::Log(string mesg){
-	#ifdef ANDROID
+void Futz::Log(string mesg)
+{
+#ifdef ANDROID
 	LOGI(mesg.c_str());
-	#else
-	printf("Futz: %s\n",mesg.c_str());
-	//cout << "Futz: " << mesg << endl;
-	#endif
+#else
+	printf("Futz: %s\n", mesg.c_str());
+//cout << "Futz: " << mesg << endl;
+#endif
 }

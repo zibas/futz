@@ -9,7 +9,6 @@
 
 #ifdef OSX
 #include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
 #include <GLUT/glut.h>
 #elif OPENGLES1
 #ifdef IOS
@@ -20,8 +19,6 @@
 #endif
 #else
 #include <GL/gl.h>
-#include <GL/glu.h>
-//#include <GL/glut.h>
 #endif
 #include "Triangle.h"
 #include "Material.h"

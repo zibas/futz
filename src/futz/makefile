@@ -3,6 +3,7 @@ SOURCES_SHARED = Futz.cpp \
       TimeKeeper.cpp \
       3rdParty/stb_image.cpp \
       platforms/SystemLayerBase.cpp \
+      renderers/RendererBase.cpp \
       renderers/dummy/DummyRenderer.cpp \
       renderers/gl1/GL1Renderer.cpp \
       camera/Camera.cpp \
@@ -46,9 +47,9 @@ ifeq ($(UNAME),Darwin)
 endif
 
 all:
-	$(MAKE) sdl
+#	$(MAKE) sdl
 	$(MAKE) sdl2
-	$(MAKE) glut
+#	$(MAKE) glut
 
 sdl:
 	rm -f Futz.o

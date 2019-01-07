@@ -8,3 +8,5 @@ visualstudio/Life/Debug
 visualstudio/Life/Release
 visualstudio/Fish Listening to Radio/Debug
 visualstudio/Fish Listening to Radio/Release
+*.o
+*.a
