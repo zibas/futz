@@ -14,15 +14,11 @@
 #include "../../models/Triangle.h"
 #include "../../Futz.h"
 
-/*
-void GL1Renderer::testFunction(){
-    printf("this is the test function child");
+std::shared_ptr<RendererBase> GL1Renderer::Create(){
+	std::shared_ptr<GL1Renderer>  f(new GL1Renderer());
+	return f;
 }
-*/
-void GL1Renderer::TestFunction()
-{
-	printf("child test function");
-}
+
 void GL1Renderer::Initialize(int width, int height)
 {
 	Futz::Log("Initializing GL1Renderer");

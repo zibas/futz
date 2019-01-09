@@ -5,7 +5,6 @@
  *      Author: ziba
  */
 
-
 /*
 
 Define the appropriate variables in your compile phase
@@ -21,12 +20,21 @@ FUTZ_PLATFORM_IOS
 FUTZ_PLATFORM_DREAMCAST
 FUTZ_PLATFORM_ANDROID
 */
+//#define FUTZ_RENDERER_GL1 1
 
 #ifdef _WIN32
 #include <Windows.h>
 #endif
 
 #include <stdio.h>
+#include <string>
+#ifdef _WIN32
+#include <memory>
+#else
+#include <tr1/memory>
+#endif
+#include <iostream>
+
 #include "Futz.h"
 #include "models/Model.h"
 #include "models/wavefront/WavefrontModel.h"

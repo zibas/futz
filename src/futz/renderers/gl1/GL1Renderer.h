@@ -27,9 +27,9 @@ public:
     void DrawLine(Vector3 a, Vector3 b, Vector3 c);
     void DrawLine(Vector3 a, Vector3 b);
 	void Resize(int width, int height);
-	void TestFunction();
-
 	void SetCameraParameters(Camera* camera);
+	static std::shared_ptr<RendererBase> Create();
+
 
 private:
 	void DrawWithArrays(Model*);
