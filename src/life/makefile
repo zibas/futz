@@ -2,6 +2,7 @@
 # make LAYER=SDL
 EXECUTABLE_GLUT=3dlife
 EXECUTABLE_SDL=3dlife_sdl
+EXECUTABLE_SDL2=3dlife_sdl2
 FUTZ_PATH=../futz
 
 UNAME := $(shell uname)
@@ -13,15 +14,18 @@ CC=g++
 CFLAGS=-c -Wall
 SOURCES=main.cpp Life3d.cpp liblife.c
 OBJECTS=$(SOURCES:.cpp=.o)
-INCLUDES = -I. -I../include/ -I$(FUTZ_PATH)
+INCLUDES = -I. -I../include/ -I$(FUTZ_PATH)/
 
 ifeq ($(LAYER),SDL)
 	LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl -lGL -lGLU -lSDL
 	EXECUTABLE=$(EXECUTABLE_SDL)
+else ifeq ($(LAYER),SDL2)
 	 #SDL 1.2 is kind of insane on OSX: http://www.digitalmars.com/d/archives/digitalmars/D/12078.html
+	LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl2 -lGL -lGLU -lSDL2
+	EXECUTABLE=$(EXECUTABLE_SDL2)
 	ifeq ($(UNAME),Darwin)
 	  DEFINES=-D OSX
-	  LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl -lGL -lGLU
+	  LIBS = -L../ -L/usr/local/lib -lm  -L$(FUTZ_PATH)/bin -lfutz_sdl2 -lGL -lGLU
 	  LIBS += -L"/System/Library/Frameworks/OpenGL.framework/Libraries"
 	  LIBS += `sdl-config --libs`
 	  INCLUDES += `sdl-config --cflags`
@@ -46,4 +50,4 @@ all:
 	$(CC) $(DEFINES) $(SOURCES) $(INCLUDES) $(LIBS) $(FRAMEWORK) -o $(EXECUTABLE)
 
 clean:
-	rm -rf *o $(EXECUTABLE_GLUT) $(EXECUTABLE_SDL)
+	rm -rf *o $(EXECUTABLE_GLUT) $(EXECUTABLE_SDL) $(EXECUTABLE_SDL2)
